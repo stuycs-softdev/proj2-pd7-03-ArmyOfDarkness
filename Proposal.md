@@ -20,9 +20,10 @@ A. Education.com API
 --> Teacher Stats
 --> Test Scores
 --> Student Aps 
-
 B. Google Maps API 
 --> Location of the School
+
+Other schools that relate to the school 
 
 C. NYC Open Data
 --> Information about Zip Code 
