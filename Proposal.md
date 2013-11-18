@@ -18,5 +18,3 @@ Part B: Use NYC Open Data API:
 
 Part A: Use CollegeMatch to get information regarding colleges.   
 Part B: Use CollegiateLink to get information regarding regards extra-curriculars.   
-
-
