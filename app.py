@@ -6,7 +6,7 @@ app.secret_key = "secretkey"
 @app.route("/")
 @app.route("/home")
 def home():
-    return "<h1>Temp home page for group 3</h1>"
+    return render_template("index.html")
     
 @app.route("/logout")
 def logout():
