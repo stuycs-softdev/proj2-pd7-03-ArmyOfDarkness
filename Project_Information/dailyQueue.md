@@ -24,6 +24,9 @@ Jack - Create HTML File which displays API results
 
 Haoxin - Create HTML File which displays API results 
 
-Tak Chi - Write Text for About Page 
+Tak Chi - Write Text for 
+About Page - Mission, goals, juniors will use our site and learn stuff. Learning stuff college is good = make informed decisions
+Home Page = brief welcome, tell user what they will be able to do our site
+Design & Acknowledgements - talk about which apis were using
 
 Alvin - Add ChangePass and add CSS Styling to current HTML Docs
