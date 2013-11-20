@@ -17,3 +17,13 @@ Tak Chi - Make sure that Alvin's pages link into our Middleend (flask) and Backe
 Jack - Create a basic running version of Education API and create a connected HTML Page
 
 Haoxin - Create a basic running version of an API and create a connected HTML Page
+
+Due November 21: 
+
+Jack - Create HTML File which displays API results 
+
+Haoxin - Create HTML File which displays API results 
+
+Tak Chi - Write Text for About Page 
+
+Alvin - Add ChangePass and add CSS Styling to current HTML Docs
