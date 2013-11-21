@@ -5,7 +5,6 @@ import re
 
 def parser(text):
     ans = []
-#    for x in text.split(' ',','):
     for x in re.split(' |\n|,',text):
         if not len(x) <1:
             ans.append(x)
@@ -57,6 +56,18 @@ def profSearch(link):
         name = x.get_text()
         if name.find(',') !=-1:
             ans.append(['https://myedu.com'+x.get('href'),parser(name)])
+    request.close()
+    return ans
+
+def courseSearch(link):
+    request = urlopen(link)
+    soup = BeautifulSoup(request)
+    ans = []
+    for x in soup.find_all():
+        name = parser(x.get_text())
+        for i in x.find_all('img'):
+            link = i.get('src')
+            ans.append([name,link])
     request.close()
     return ans
 
