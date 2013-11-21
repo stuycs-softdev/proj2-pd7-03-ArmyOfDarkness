@@ -1,0 +1,26 @@
+Education.com API  
+
+This part of the project is going to be displayed as an "ADVANCED SEARCH" on the website.  
+The user will input as many fields as they want from the list of fields.  
+We will take that info, run a search and produce a dictionary with information about the schools that fit the criteria. 
+Data will be displayed in a huge table, above which we will take text displayed. 
+
+Maps API 
+
+This part of the project is going to be displayed as a blank page with three map search options. 
+1. School Search 
+2. City Search
+3. Zip Search 
+The result of the search will produce a list of schools meeting the given criteria. 
+These results will be fit onto a map. 
+
+MyEdu Screen Scraping  
+
+This part of the project will be be displayed on page. A search query for a college name will be made: 
+We will return a column with all the schools under that name. 
+If you click on a school: 
+You will get a department list. 
+If you click on the department: 
+You will get a faculty list. 
+If you click on the professor: 
+You will get a list of classes the professor teaches. 
