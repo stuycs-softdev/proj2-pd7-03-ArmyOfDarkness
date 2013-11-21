@@ -1,0 +1,11 @@
+Welcome to our website. At this website, you will be able to search the name of a specific college or university in the United States. All of the departments that are a part of each school, as well as all the faculty members and the courses they teach are listed. We hope you will be able to acquire all the information you need to assist you with your school choices.
+
+Design & Acknowledgements
+Webpage design – Alvin Leung 
+API implements – Jack Cahn and Haoxin Luo
+Database & Flask – Tak Chi Wan
+We are using the API from education.com, an excellent website to acquire information about schools, as well as to get worksheets and videos to help students reach their full potential.
+ 
+Our Mission –
+In this time and age, it is more important than ever to receive a college education. Where you go for college will have a great impact on your future. Thus, it is imperative that you decide on potential career paths and to research possible schools you want to study at. Our goal is to assist you in your research. We will provide you with all the areas of study and courses available for any university in the United States with a simple search of the school’s name. We sincerely hope that we will be of help to you, and that you will be able to find the institutions that best suit your interests. 
+
