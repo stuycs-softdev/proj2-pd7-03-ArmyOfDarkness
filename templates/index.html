@@ -11,24 +11,20 @@
   <body>
     <div class="text-center">
       <h1>HOMEPAGE</h1><!--Replace with image?-->
-      <form method="POST" role="form" class="form-inline">
-	<div class="row">
-	  <input type="text" name="query_string" placeholder="Search a school...">
-	  <button type="submit" class="btn btn-default">Search</button>
+      <form method="POST" class="form-search">
+	<input type="text" name="query_string" placeholder="Search a school..." class="input-medium search-query">
+	<button type="submit" class="btn btn-default">Search</button>
+	<div class="radio">
+	  <label>
+	    <input type="radio" name="search-radio" value="NYC Schools" checked>
+	    NYC Schools 
+	  </label>
 	</div>
-	<div class="row">
-	  <div class="radio">
-	    <label>
-	      <input type="radio" name="search-radio" value="NYC Schools" checked>
-	      NYC Schools 
-	    </label>
-	  </div>
-	  <div class="radio">
-	    <label>
-	      <input type="radio" name="search-radio" value="Colleges">
-	      Colleges 
-	    </label>
-	  </div>
+	<div class="radio">
+	  <label>
+	    <input type="radio" name="search-radio" value="Colleges">
+	    Colleges 
+	  </label>
 	</div>
       </form>
     </div>
