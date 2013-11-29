@@ -64,11 +64,6 @@ def account():
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
-
-@app.route("/map")
-def googlemap():
-    if 'user' in session:
-        return render_template("map.html", user = session['user'])
         
 if __name__ == "__main__":
     app.debug = True
