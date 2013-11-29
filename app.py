@@ -7,7 +7,7 @@ app.secret_key = "secretkey"
 @app.route("/home")
 def home():
     if 'user' in session:
-        return render_template("index.html", user = session['user']);
+        return render_template("index.html", user = session['user'])
     else:
         return redirect(url_for('login'))
         
@@ -66,10 +66,10 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route("/map")
-def googlemap(address):
-    addr = location.replace(" ","+")
-    return "http://maps.googleapis.com/maps/api/staticmap?center="+addr+"&zoom=14&size=600x600&maptype=roadmap&markers=color:blue%%7Clabel:S%7C11211%7C11206%7C11222&sensor=false"
-
+def googlemap():
+    if 'user' in session:
+        return render_template("map.html", user = session['user'])
+        
 if __name__ == "__main__":
     app.debug = True
     app.run(port=7003)
