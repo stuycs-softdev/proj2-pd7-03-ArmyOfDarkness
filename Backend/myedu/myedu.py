@@ -32,7 +32,7 @@ def uniSearch(keywords):
 
 
 #pass in link to university x's info pg
-#returns [<img 1: of enrollment rates>,<img 2: of avg std test scores>]
+#returns [<url to img 1: of enrollment rates>,<url to img 2: of avg std test scores>]
 def imgSearch(link): 
     request = urlopen(link)
     soup = BeautifulSoup(request)
@@ -47,7 +47,7 @@ def depSearch(link):
     request = urlopen(link)
     soup = BeautifulSoup(request)
     ans = []
-    for x in soup.find_all(class_='name'):
+    for x in soup.find("div",id="body").find_all(class_='name'):
         ans.append(['https://www.myedu.com'+x.get('href'),x.get_text()])
     request.close()
     return ans
@@ -58,7 +58,7 @@ def profSearch(link):
     request = urlopen(link)
     soup = BeautifulSoup(request)
     ans = []
-    for x in soup.find_all(class_='name'):
+    for x in soup.find("div",id="body").find_all(class_='name'):
         name = x.get_text()
         if name.find(',') !=-1:
             ans.append(['https://myedu.com'+x.get('href'),parser(name)])
@@ -71,10 +71,14 @@ def courseSearch(link):
     request = urlopen(link)
     soup = BeautifulSoup(request)
     ans = []
-    for x in soup.find_all(<fill>):
-        name = parser(x.get_text())
-        for i in x.find_all('img'):
-            link = i.get('src')
+    z = 1
+    for x in soup.find_all("div",id="body",limit=1):
+        for i in x.find_all("tbody",class_="list"):
+            name = i.get("data-name")
+            if name == None:
+                break
+            for j in i.find_all('img',limit=1):
+                link = j.get('src')
             ans.append([name,link])
     request.close()
     return ans
@@ -83,11 +87,14 @@ def courseSearch(link):
 if __name__ == "__main__":
     
     start = time.time()
-    url = uniSearch("      yale  university")
-    img = imgSearch(url[0][0])
-    dep = depSearch(url[0][2])
-    prof = profSearch(dep[0][0])
-    end = time.time() - start
+    for i in range(0,20):
+        url = uniSearch("      yale  university")
+        img = imgSearch(url[0][0])
+        dep = depSearch(url[0][2])
+        prof = profSearch(dep[3][0])
+        course = courseSearch(prof[0][0])
+    print(course)
+    end = (time.time() - start)/20
     
     print(end)
 

@@ -1,0 +1,78 @@
+<br><br><br><br><br><br>
+
+<form method = "POST">
+  <input type="text" name="search-field" placeholder="search for uni">
+  <button type="submit" name="btn" value = "search">Submit</button>
+</form>
+
+<br>
+{% for x in data['info']%}
+<img src="{{x}}">
+{% endfor %}
+
+
+<table cellpadding="3" border="1">
+  <tr>
+    <td><h5>University</h5></td>
+    <td><h5>Department</h5></td>
+    <td><h5>Professor</h5></td>
+    <td><h5>Course</h5></td>
+  </tr>
+  <tr>
+    <td>
+      <ul style="list-style:none;">
+	{% set i = 0 %}
+	{% for x in data['univ'] %}
+	<form method = "POST">
+	  <li>
+	    <button name="btn" value="univ {{i}}">{{x[1]}}</button>
+	  </li>
+	</form>
+	{% set i = i + 1 %}
+	{% endfor %}  
+      </ul>
+    </td>
+    
+    <td>
+      <ul style="list-style:none;">
+	{% set i = 0 %}
+	{% for x in data['dep'] %}
+	<form method="POST">
+	  <li>
+	    <button name="btn" value="dep {{i}}">{{x[1]}}</button>
+	  </li>
+	</form>
+	{% set i = i + 1 %}
+	{% endfor %}  
+      </ul>
+      </td>
+
+    <td>
+      <ul style="list-style:none;">
+	{% set i = 0 %}
+	{% for x in data['prof'] %}
+	<form method="POST">
+	  <li>
+	    <button name="btn" value="prof {{i}}">{{x[1]}}</button>
+	  </li>
+	</form>
+	{% set i = i + 1 %}
+	{% endfor %}  
+      </ul>
+      </td>
+
+    <td>
+      <ul style="list-style:none;">
+	{% set i = 0 %}
+	{% for x in data['courses'] %}
+	<form method="POST">
+	  <li>
+	    {{x[0]}}
+	  </li>
+	</form>
+	{% set i = i + 1 %}
+	{% endfor %}  
+      </ul>
+    </td>
+  </tr>
+</table>
