@@ -4,6 +4,7 @@ from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, citysearch
 import json 
 import db
+
 app = Flask(__name__)
 app.secret_key = "secretkey"
 
