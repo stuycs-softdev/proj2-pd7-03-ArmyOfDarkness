@@ -10,10 +10,11 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">SchoolSearch</a>
+    <a class="navbar-brand" href="/">SchoolSearch</a>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    {% if loggedin %}
     <form class="navbar-form navbar-left" role="search" method="POST">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search">
@@ -30,5 +31,11 @@
         </ul>
       </li>
     </ul>
+    {% else %}
+    <ul class="navbar-form navbar-right">
+      <a href="/login"><button class="btn btn-default">Login</button></a>
+      <a href="/register"><button class="btn btn-default">Sign Up</button></a>
+    </ul>
+    {% endif %}
   </div>
 </nav>
