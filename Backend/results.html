@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title> Your City Search Results </title>
+</head>
+<body>
+<c> <b> 
+Congratulations! Your City Search Is Complete! See Below For Your Results!
+<br /> 
+<br />
+<div id = "checkboxes"> </div>
+
+<br /> 
+<br />
+
+<script type ="text/javascript">
+  var a = JSON.parse({{d|tojson|safe}});
+  var myDiv = document.getElementById("checkboxes");
+  for (var i = 0; i < a.length; i++) {
+		      n = (i+1).toString()
+		      s = "School #" + n + ": ";
+		      var text = document.createTextNode (s);
+		      myDiv.appendChild(text);
+		      myDiv.appendChild(document.createElement("br"));
+		     
+		      var val1 = document.createTextNode ("School Name: " + a[i][0]);
+		      myDiv.appendChild(val1);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val2 = document.createTextNode ("School District Name: " + a[i][1]);
+		      myDiv.appendChild(val2);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val2 = document.createTextNode ("School Type: " + a[i][2]);
+		      myDiv.appendChild(val2);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val3 = document.createTextNode (" Level of Schooling: " + a[i][3]);
+		      myDiv.appendChild(val3);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val4 = document.createTextNode ("Grades Served : " + a[i][4]);
+		      myDiv.appendChild(val4);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val5 = document.createTextNode ("Enrollment Number: " + a[i][5]);
+		      myDiv.appendChild(val5);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val6 = document.createTextNode ("Student Teacher Ratio: " + a[i][6]);
+		      myDiv.appendChild(val6);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val7 = document.createTextNode ("State : " + a[i][7]);
+		      myDiv.appendChild(val7);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val8 = document.createTextNode ("City: " + a[i][8]);
+		      myDiv.appendChild(val8);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val9 = document.createTextNode ("Zipcode: " + a[i][9]);
+		      myDiv.appendChild(val9);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val10 = document.createTextNode ("Address: " + a[i][10]);
+		      myDiv.appendChild(val10);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val11 = document.createTextNode ("Phone Number: " + a[i][11]);
+		      myDiv.appendChild(val11);
+		      myDiv.appendChild(document.createElement("br"));
+		      
+		      var val12 = document.createTextNode ("Website: " + a[i][12]);
+		      myDiv.appendChild(val12);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val13 = document.createTextNode ("URL For More Info: " + a[i][13]);
+		      myDiv.appendChild(val13);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val14 = document.createTextNode ("Latitude: " + a[i][14]);
+		      myDiv.appendChild(val14);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val15 = document.createTextNode ("Longitude: " + a[i][15]);
+		      myDiv.appendChild(val15);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val16 = document.createTextNode ("District ID: " + a[i][16]);
+		      myDiv.appendChild(val16);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val17 = document.createTextNode ("Distict LEA ID: " + a[i][17]);
+		      myDiv.appendChild(val17);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val18 = document.createTextNode ("School ID: " + a[i][18]);
+		      myDiv.appendChild(val18);
+		      myDiv.appendChild(document.createElement("br"));
+		      
+		      var val19 = document.createTextNode ("NCES ID: " + a[i][19]);
+		      myDiv.appendChild(val19);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val20 = document.createTextNode ("Test Rating Small Image Link: " + a[i][20]);
+		      myDiv.appendChild(val20);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val21 = document.createTextNode ("Test Rating Year: " + a[i][21]);
+		      myDiv.appendChild(val21);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val22 = document.createTextNode ("Test Rating Large Image Link: " + a[i][22]);
+		      myDiv.appendChild(val22);
+		      myDiv.appendChild(document.createElement("br"));
+
+		      var val23 = document.createTextNode ("Test Rating Text: " + a[i][23]);
+		      myDiv.appendChild(val23);
+		      myDiv.appendChild(document.createElement("br"));
+
+
+
+		      myDiv.appendChild(document.createElement("br"));
+
+
+
+
+
+
+		      }
+		      
+
+		      	      
+</script>	     
+
+</body>
+</html>
+
+
