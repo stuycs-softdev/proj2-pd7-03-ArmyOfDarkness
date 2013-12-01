@@ -67,7 +67,9 @@ def citysearch():
 
 @app.route("/account", methods = ['GET', 'POST'])
 def account():
-    if request.method == 'GET': 
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    elif request.method == 'GET': 
         return render_template("changepass.html", message = "")
     else:
         user = session['user']
