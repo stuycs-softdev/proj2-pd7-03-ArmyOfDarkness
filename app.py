@@ -86,13 +86,13 @@ def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
 
-@app.route('/maps',methods=["POST","GET"])
+@app.route('/mapsearch',methods=["POST","GET"])
 def map():
     if request.method == 'GET':
-        return render_template("map.html")
+        return render_template("map_search.html")
     else:
         schoolname=request.form['schoolname']
-        return render_template("map.html",addr = schoolname)
+        return render_template("map_search.html",addr = schoolname)
         
 if __name__ == "__main__":
     app.debug = True
