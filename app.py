@@ -90,6 +90,10 @@ def logout():
 def map():
     if request.method == 'GET':
         return render_template("map.html")
+    else:
+        schoolname=request.form['schoolname']
+        return render_template("map.html",addr = schoolname)
+        
 if __name__ == "__main__":
     app.debug = True
     app.run(port=7003)
