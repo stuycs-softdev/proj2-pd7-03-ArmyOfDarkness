@@ -39,9 +39,7 @@ def login():
     else:
         user = request.form['user']
         pw = request.form['pass']
-        if user == "" or pw == "":
-            return render_template("login.html", message = "Please enter your username and password.")
-        elif db.login(user, pw):
+        if db.login(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
         else:
