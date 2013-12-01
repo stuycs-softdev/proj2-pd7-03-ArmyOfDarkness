@@ -11,10 +11,7 @@ app.secret_key = "secretkey"
 @app.route("/")
 @app.route("/home")
 def home():
-    if 'user' in session:
-        return render_template("index.html", user = session['user'])
-    else:
-        return render_template("index.html")    
+    return render_template("index.html")    
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if 'user' in session:
