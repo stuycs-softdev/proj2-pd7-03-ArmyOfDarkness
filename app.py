@@ -56,8 +56,8 @@ def citysearch():
     if request.method == 'GET':
         return render_template("city_search.html", message = "")
     else: 
-        button = request.form['button'].encode("utf8")
-        if button == "Submit":
+        #button = request.form['button'].encode("utf8")
+        #if button == "Submit":
         #city = request.form['city']
         #zipcode = request.form['zipcode']
         #state = request.form['state']
@@ -67,7 +67,7 @@ def citysearch():
         #return redirect(url_for('results'), d=d)
         #return render_template("results.html")
         #return render_template("results.html", d=json.dumps(d), message = "search complete")
-            return redirect(url_for('home'))
+        return redirect(url_for('home'))
         
 @app.route("/account", methods = ['GET', 'POST'])
 def account():
