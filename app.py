@@ -58,12 +58,12 @@ def citysearch():
     else: 
         #button = request.form['button'].encode("utf8")
         #if button == "Submit":
-        city = request.form['city']
-        zipcode = request.form['zipcode']
-        state = request.form['state']
-        key = request.form['key']
+        #city = request.form['city']
+        #zipcode = request.form['zipcode']
+        #state = request.form['state']
+        #key = request.form['key']
         #return "<h1>Home</h1>"
-        d = citysearch(city, state, zipcode,key)
+        #d = citysearch(city, state, zipcode,key)
         #return redirect(url_for('results'), d=d)
         #return render_template("results.html")
         #return render_template("results.html", d=json.dumps(d), message = "search complete")
