@@ -70,7 +70,7 @@ def account():
     if 'user' not in session:
         return redirect(url_for('login'))
     elif request.method == "GET":
-        return render_template("account.html", message = "")
+        return render_template("changepass.html", message = "")
     else:
         user = session['user']
         old = request.form['old']
