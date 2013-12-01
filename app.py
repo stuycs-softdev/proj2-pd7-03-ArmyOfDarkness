@@ -46,8 +46,8 @@ def login():
         else:
             return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
 
-@app.route("/city_search", methods = ['GET', 'POST'])
-def city_search():
+@app.route("/citysearch", methods = ['GET', 'POST'])
+def citysearch():
     if request.method == 'GET':
         return render_template("city_search.html", message = "")
     else: 
