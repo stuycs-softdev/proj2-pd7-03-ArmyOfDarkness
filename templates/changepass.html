@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    {% include "navbar.html" %}
+    <title>Register</title>
+  </head>
+  
+  <body>
+    <ul display = "inline" list-style-type = "none">
+    </ul>
+    <br>
+    {{message}}
+    <br>
+    <form method = "POST" align = "center">
+      <p> Change Password: </p>
+      <p> Old Password: <input type = "text" name = "old"> </p>
+      <p> New Password: <input type = "text" name = "new"> </p>
+      <input type = "submit" name = "button" value = "Save">
+    </form>
+  </body>
+
+</html>

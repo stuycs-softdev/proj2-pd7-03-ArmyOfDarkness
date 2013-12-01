@@ -7,30 +7,19 @@ import json #download json and then import it in order to access functionality.
 from urllib2 import urlopen
 
 def run():
-    key = "2db9eedc16ba9389991b223c4fb97df8"
-    key1 = "7d733591e1f66640dc372fcb658fe38d"
-    url = "http://api.education.com/service/service.php?f=schoolSearch&key=7d733591e1f66640dc372fcb658fe38d&sn=sf&v=4&city=san+francisco&state=ca&resf=json"
+    mom = "2db9eedc16ba9389991b223c4fb97df8"
+    dad = "7d733591e1f66640dc372fcb658fe38d"
+    stuy = "c7e0635761a449cde8a406b7b1eaaffb"
+    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + stuy + "&sn=sf&v=4&city=san+francisco&state=ca&resf=json"
     print url
     input1 = urlopen(url)
     json_raw = input1.read() 
     json_data = json.loads(json_raw)
 
     print json_data
-    #for x in range (0, len(json_data)):
-     #   entry = json_data[x]
-      #  entry_info = entry['school']
-       # print "School #" + str(x) + ': ' + str(entry_info) 
+def test(city,state,zipcode,key):
+    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4"
 
-# entry_info['city'], entry_info['schooldistrictname'], entry_info['website']
-
-def citysearch(city, state, zipcode):
-    key = "2db9eedc16ba9389991b223c4fb97df8"
-    key1 = "7d733591e1f66640dc372fcb658fe38d"
-    url = "http://api.education.com/service/service.php?f=schoolSearch&key=7d733591e1f66640dc372fcb658fe38d&sn=sf&v=4"
-
-    #&city=san+francisco&state=ca&resf=json"
-
-   # print url
     if city != "": 
         url = url + "&city=" + city
     if state != "":
@@ -38,17 +27,37 @@ def citysearch(city, state, zipcode):
     if zipcode != "":
         url = url + "&zip=" + zipcode
     url = url + "&resf=json"
+    print(url)
     
+    try: 
+        input1 = urlopen(url)
+        return true 
+    except: 
+        return false
+    
+def city_search(city, state, zipcode,key):
+    mom = "2db9eedc16ba9389991b223c4fb97df8"
+    dad = "7d733591e1f66640dc372fcb658fe38d"
+    stuy = "c7e0635761a449cde8a406b7b1eaaffb"
+    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4"
+
+    #&city=san+francisco&state=ca&resf=json"
+
+
+    if city != "": 
+        url = url + "&city=" + city
+    if state != "":
+        url = url + "&state=" + state
+    if zipcode != "":
+        url = url + "&zip=" + zipcode
+    url = url + "&resf=json"
+    print(url)
+
     input1 = urlopen(url)
     json_raw = input1.read() 
     json_data = json.loads(json_raw)
     
-    #return json_data
-    #print json_data
-    #for x in range (0, len(json_data)):
-    #entry = json_data[x]
-    #entry_info = entry['school']
-    #print "School #" + str(x) + ': ' + str(entry_info) 
+    print json_data
 
     results = []
 
@@ -168,6 +177,6 @@ def citysearch(city, state, zipcode):
 
 if __name__ == '__main__':
     #run()
-    citysearch("new+york", "ny", "10022")
+    city_search("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
 
 
