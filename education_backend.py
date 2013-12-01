@@ -17,7 +17,24 @@ def run():
     json_data = json.loads(json_raw)
 
     print json_data
+def test(city,state,zipcode,key):
+    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4"
 
+    if city != "": 
+        url = url + "&city=" + city
+    if state != "":
+        url = url + "&state=" + state
+    if zipcode != "":
+        url = url + "&zip=" + zipcode
+    url = url + "&resf=json"
+    print(url)
+    
+    try: 
+        input1 = urlopen(url)
+        return true 
+    except: 
+        return false
+    
 def city_search(city, state, zipcode,key):
     mom = "2db9eedc16ba9389991b223c4fb97df8"
     dad = "7d733591e1f66640dc372fcb658fe38d"
