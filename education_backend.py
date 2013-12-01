@@ -160,6 +160,6 @@ def citysearch(city, state, zipcode,key):
 """
 if __name__ == '__main__':
     #run()
-    citysearch("new+york", "ny", "10022")
+    citysearch("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
 
 
