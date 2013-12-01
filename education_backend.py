@@ -7,9 +7,10 @@ import json #download json and then import it in order to access functionality.
 from urllib2 import urlopen
 
 def run():
-    key = "2db9eedc16ba9389991b223c4fb97df8"
-    key1 = "7d733591e1f66640dc372fcb658fe38d"
-    url = "http://api.education.com/service/service.php?f=schoolSearch&key=7d733591e1f66640dc372fcb658fe38d&sn=sf&v=4&city=san+francisco&state=ca&resf=json"
+    mom = "2db9eedc16ba9389991b223c4fb97df8"
+    dad = "7d733591e1f66640dc372fcb658fe38d"
+    stuy = "c7e0635761a449cde8a406b7b1eaaffb"
+    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4&city=san+francisco&state=ca&resf=json"
     print url
     input1 = urlopen(url)
     json_raw = input1.read() 
@@ -17,10 +18,11 @@ def run():
 
     print json_data
 
-def citysearch(city, state, zipcode):
-    key = "2db9eedc16ba9389991b223c4fb97df8"
-    key1 = "7d733591e1f66640dc372fcb658fe38d"
-    url = "http://api.education.com/service/service.php?f=schoolSearch&key=7d733591e1f66640dc372fcb658fe38d&sn=sf&v=4"
+def citysearch(city, state, zipcode,key):
+    mom = "2db9eedc16ba9389991b223c4fb97df8"
+    dad = "7d733591e1f66640dc372fcb658fe38d"
+    stuy = "c7e0635761a449cde8a406b7b1eaaffb"
+    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4"
 
     #&city=san+francisco&state=ca&resf=json"
 
