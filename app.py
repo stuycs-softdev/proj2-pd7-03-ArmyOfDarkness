@@ -69,16 +69,17 @@ def citysearch():
 def account():
     if 'user' not in session:
         return redirect(url_for('login'))
-    elif request.method == "GET":
-        return render_template("changepass.html", message = "")
-    else:
-        user = session['user']
-        old = request.form['old']
-        new = request.form['new']
-        if db.changePass(user, old, new):
-            return render_template("changepass.html", message = "Password changed successfully.")
+    if 'user' in session: 
+        if request.method == 'GET': 
+            return render_template("changepass.html", message = "")
         else:
-            return render_template("changepass.html", message = "Unsuccessful. You entered an incorrect password.")
+            user = session['user']
+            old = request.form['old']
+            new = request.form['new']
+            if db.changePass(user, old, new):
+                return render_template("changepass.html", message = "Password changed successfully.")
+            else:
+                return render_template("changepass.html", message = "Unsuccessful. You entered an incorrect password.")
 
 @app.route("/logout")
 def logout():
