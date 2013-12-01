@@ -10,7 +10,7 @@ def run():
     mom = "2db9eedc16ba9389991b223c4fb97df8"
     dad = "7d733591e1f66640dc372fcb658fe38d"
     stuy = "c7e0635761a449cde8a406b7b1eaaffb"
-    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4&city=san+francisco&state=ca&resf=json"
+    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + stuy + "&sn=sf&v=4&city=san+francisco&state=ca&resf=json"
     print url
     input1 = urlopen(url)
     json_raw = input1.read() 
