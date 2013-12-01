@@ -80,6 +80,9 @@ def account():
         else:
             return render_template("changepass.html", message = "Unsuccessful. You entered an incorrect password.")
 
+@app.route("/schoolsearch")
+    return <h1> School Search </h1>
+
 @app.route("/logout")
 def logout():
     session.pop('user', None)
