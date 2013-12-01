@@ -39,10 +39,12 @@ def login():
     else:
         user = request.form['user']
         pw = request.form['pass']
-        if db.login(user, pw):
+        if user == "" or pw == "":
+            return render_template("login.html", message = "Please enter your username and password.")
+        elif db.login(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
-        else:
+        elif (db.login(user,pw) == False):
             return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
 
 @app.route("/schoolsearch", methods = ['GET', 'POST'])
