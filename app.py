@@ -67,7 +67,7 @@ def citysearch():
         print("city")
         print("zipcode")
         print("state")
-        #return redirect(url_for('home'))
+        return redirect(url_for('home'))
        # print(str(d))
 
 @app.route("/account", methods = ['GET', 'POST'])
