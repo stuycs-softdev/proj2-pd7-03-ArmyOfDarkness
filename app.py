@@ -76,9 +76,9 @@ def account():
         old = request.form['old']
         new = request.form['new']
         if db.changePass(user, old, new):
-            return render_template("account.html", message = "Password changed successfully.")
+            return render_template("changepass.html", message = "Password changed successfully.")
         else:
-            return render_template("account.html", message = "Unsuccessful. You entered an incorrect password.")
+            return render_template("changepass.html", message = "Unsuccessful. You entered an incorrect password.")
 
 @app.route("/logout")
 def logout():
