@@ -92,6 +92,7 @@ def map():
         return render_template("map_search.html")
     else:
         schoolname=request.form['schoolname']
+        addr = schoolname.replace(" ","+")
         return render_template("map_search.html",addr = schoolname)
         
 if __name__ == "__main__":
