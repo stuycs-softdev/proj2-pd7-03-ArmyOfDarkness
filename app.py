@@ -39,7 +39,9 @@ def login():
     else:
         user = request.form['user'].encode ('ascii',"ignore")
         pw = request.form['pass'].encode ('ascii',"ignore")
-        if db.authenticate(user, pw):
+        if !db.authenticateRegiset(user):
+            return render_template("login.html")
+        elif db.authenticate(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
         else: 
