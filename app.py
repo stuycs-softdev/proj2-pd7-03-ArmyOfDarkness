@@ -64,6 +64,11 @@ def account():
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
+
+@app.route('/maps',methods=["POST","GET"])
+def map():
+    if request.method == 'GET':
+            return render_template("map.html")
         
 if __name__ == "__main__":
     app.debug = True
