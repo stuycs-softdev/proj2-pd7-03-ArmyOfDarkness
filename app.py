@@ -56,10 +56,10 @@ def citysearch():
     if request.method == 'GET':
         return render_template("city_search.html", message = "")
     if request.method == 'POST':
-        city = request.form['city']
-        zipcode = request.form['zipcode']
-        state = request.form['state']
-        key = request.form['key']
+        #city = request.form['city']
+        #zipcode = request.form['zipcode']
+        #state = request.form['state']
+        #key = request.form['key']
         #return "<h1>Home</h1>"
         #d = citysearch(city, state, zipcode,key)
         #return redirect(url_for('results'), d=d)
