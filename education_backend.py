@@ -38,7 +38,8 @@ def citysearch(city, state, zipcode):
     if zipcode != "":
         url = url + "&zip=" + zipcode
     url = url + "&resf=json"
-    
+    print(url)
+"""
     input1 = urlopen(url)
     json_raw = input1.read() 
     json_data = json.loads(json_raw)
@@ -165,7 +166,7 @@ def citysearch(city, state, zipcode):
             
     print results
     return results
-
+"""
 if __name__ == '__main__':
     #run()
     citysearch("new+york", "ny", "10022")
