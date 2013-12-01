@@ -39,14 +39,11 @@ def login():
     else:
         user = request.form['user'].encode ('ascii',"ignore")
         pw = request.form['pass'].encode ('ascii',"ignore")
-        if user == "" or pw == "":
-            return render_template("login.html", message = "Please enter your username and password.")
-        elif (db.authenticateRegister(user) == False):
-            return render_template("login.html", message = "Invalid username.Please try again.")
-        elif db.authenticate(user, pw):
+        if db.authenticate(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
-        return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
+        else: 
+            return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
 
 @app.route("/schoolsearch", methods = ['GET', 'POST'])
 def search(): 
