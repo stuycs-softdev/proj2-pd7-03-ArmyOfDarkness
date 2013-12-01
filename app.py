@@ -41,6 +41,8 @@ def login():
         pw = request.form['pass']
         if user == "" or pw == "":
             return render_template("login.html", message = "Please enter your username and password.")
+        elif (db.authenticateRegister(user) == False):
+            return render_template("login.html", message = "Invalid username.Please try again.")
         elif db.authenticate(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
