@@ -12,6 +12,11 @@ def register(user, pw):
         db.login.insert({'user':user, 'pass':pw})
         return True
     
+def authenticate(username,password):
+    users = db.JackAlvin.find({'username':username,'password':password},
+                              fields={'_id':False})
+    return len([user for user in users]) != 0
+    
 def checkuser(user):
     users = [user for user in db.login.find({'user':user},
                                             fields={'_id':False,'user':True})]
