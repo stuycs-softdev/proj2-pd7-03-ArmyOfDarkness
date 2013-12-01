@@ -41,7 +41,7 @@ def citysearch(city, state, zipcode,key):
     json_data = json.loads(json_raw)
     
     print json_data
-"""
+
     results = []
 
     for entry in json_data:
@@ -157,7 +157,7 @@ def citysearch(city, state, zipcode,key):
             
     print results
     return results
-"""
+
 if __name__ == '__main__':
     #run()
     citysearch("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
