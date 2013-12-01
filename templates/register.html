@@ -10,19 +10,23 @@
   <body>
     <div class="text-center">
       <h1>Register</h1>
-      <form method="POST" role="form" class="form-inline">
-	<div class="form-group">
-	  <label for="user">Username</label>
-	  <input type="text" class="form-control" id="user" placeholder="Enter username...">
-	</div>
-	<div class="form-group">
-	  <label for="pass">Password</label>
-	  <input type="text" class="form-control" id="pass" placeholder="Enter password..."> <!--TODO: change input type to password -->
-	</div>
-	{{message}}
-	<button type="submit" class="btn btn-default">Submit</button>
-      </form>
-    </div>
-  </body>
-  
+      <form method="POST">
+Please create a username.
+<br>
+Username: <input type="text" name="user">
+<br>
+<br>
+Please create a password.
+<br>
+Password: <input type="password" name="pass"> 
+<br>
+Please verify your password. 
+<br>
+Password: <input type="password" name="pass2">
+<br>
+<input type="submit" name="button" value="Submit">
+
+</form>
+<br>
+<sub>Already have an account? <a href="login">Login here!<a></sub>
 </html>
