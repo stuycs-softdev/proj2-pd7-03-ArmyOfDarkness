@@ -12,15 +12,15 @@ def register(user, pw):
         db.login.insert({'user':user, 'pass':pw})
         return True
     
-def authenticateNew(username, password):
-    user = [x['password'] for x in db.accounts.find({'username':username})]
+def authenticate(username, password):
+    user = [x['password'] for x in db.login.find({'username':username})]
 
     if len(user) > 0 and user[0] == password:
         return True
     else:
         return False
 
-def authenticate(username,password):
+def authenticateOld(username,password):
     users = db.login.find({'username':username,'password':password},
                               fields={'_id':False})
     return len([user for user in users]) != 0
