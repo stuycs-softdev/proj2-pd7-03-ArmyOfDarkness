@@ -64,7 +64,7 @@ def citysearch():
         key = request.form['key']
         print(key)
         #return "<h1>Home</h1>"
-        if test(city,state,zipcode,key)
+        if test(city,state,zipcode,key):
             d = city_search(city, state, zipcode,key)
             #return redirect(url_for('results'), d=d)
             #return render_template("results.html")
