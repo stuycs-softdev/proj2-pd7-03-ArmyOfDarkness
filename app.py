@@ -55,7 +55,7 @@ def search():
 def citysearch():
     if request.method == 'GET':
         return render_template("city_search.html", message = "")
-    else: 
+    if request.method == 'POST':
         city = request.form['city']
         zipcode = request.form['zipcode']
         state = request.form['state']
@@ -64,6 +64,7 @@ def citysearch():
         #return redirect(url_for('results'), d=d)
         #return render_template("results.html", d=json.dumps(d), message = "search complete")
         print("begin")
+        return redirect(url_for('home'))
        # print(str(d))
 
 @app.route("/account", methods = ['GET', 'POST'])
