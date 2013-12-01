@@ -49,7 +49,7 @@ def login():
 
 @app.route("/schoolsearch", methods = ['GET', 'POST'])
 def search(): 
-    return <h1> School Search </h1> 
+    return "<h1> School Search </h1>"
 
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
