@@ -64,9 +64,9 @@ def citysearch():
         #return redirect(url_for('results'), d=d)
         #return render_template("results.html")
         #return render_template("results.html", d=json.dumps(d), message = "search complete")
-        print("city")
-        print("zipcode")
-        print("state")
+        #print("city")
+        #print("zipcode")
+        #print("state")
         return redirect(url_for('home'))
        # print(str(d))
 
