@@ -40,12 +40,12 @@ def login():
         user = request.form['user'].encode ('ascii',"ignore")
         pw = request.form['pass'].encode ('ascii',"ignore")
         if not db.authenticateRegister(user):
-            return render_template("login.html")
+            return render_template("login.html", message = "invalid username and password combination.")
         elif db.authenticate(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
         else: 
-            return render_template("login.html")
+            return render_template("login.html", message = "invalid username and password combination.")
 
 @app.route("/schoolsearch", methods = ['GET', 'POST'])
 def search(): 
