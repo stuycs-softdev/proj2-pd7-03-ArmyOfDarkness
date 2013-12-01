@@ -55,7 +55,7 @@ def search():
 def citysearch():
     if request.method == 'GET':
         return render_template("city_search.html", message = "")
-    if request.method == 'POST':
+    else: 
         #city = request.form['city']
         #zipcode = request.form['zipcode']
         #state = request.form['state']
