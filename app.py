@@ -62,6 +62,7 @@ def citysearch():
         zipcode = request.form['zipcode']
         state = request.form['state']
         key = request.form['key']
+        print(key)
         #return "<h1>Home</h1>"
         #d = citysearch(city, state, zipcode,key)
         #return redirect(url_for('results'), d=d)
