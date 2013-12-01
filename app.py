@@ -66,7 +66,7 @@ def citysearch():
         d = citysearch(city, state, zipcode,key)
         #return redirect(url_for('results'), d=d)
         #return render_template("results.html")
-        #return render_template("results.html", d=json.dumps(d), message = "search complete")
+        return render_template("results.html", d=json.dumps(d), message = "search complete")
         return redirect(url_for('home'))
         
 @app.route("/account", methods = ['GET', 'POST'])
