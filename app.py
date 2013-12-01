@@ -39,7 +39,7 @@ def login():
     else:
         user = request.form['user'].encode ('ascii',"ignore")
         pw = request.form['pass'].encode ('ascii',"ignore")
-        if db.authenticate(user, pw):
+        if db.login(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
         if not db.authenticateRegister(user):
