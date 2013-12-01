@@ -18,7 +18,7 @@ def run():
 
     print json_data
 
-def citysearch(city, state, zipcode,key):
+def city_search(city, state, zipcode,key):
     mom = "2db9eedc16ba9389991b223c4fb97df8"
     dad = "7d733591e1f66640dc372fcb658fe38d"
     stuy = "c7e0635761a449cde8a406b7b1eaaffb"
@@ -26,7 +26,7 @@ def citysearch(city, state, zipcode,key):
 
     #&city=san+francisco&state=ca&resf=json"
 
-   # print url
+
     if city != "": 
         url = url + "&city=" + city
     if state != "":
@@ -160,6 +160,6 @@ def citysearch(city, state, zipcode,key):
 
 if __name__ == '__main__':
     #run()
-    citysearch("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
+    city_search("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
 
 

@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 from flask import Flask, session, redirect, request, url_for, render_template
-from education_backend import run, citysearch
+from education_backend import run, city_search
 import json 
-import db
+#import db
 #import googlemap
 
 app = Flask(__name__)
@@ -64,10 +64,10 @@ def citysearch():
         key = request.form['key']
         print(key)
         #return "<h1>Home</h1>"
-        #d = citysearch(city, state, zipcode,key)
+        d = city_search(city, state, zipcode,key)
         #return redirect(url_for('results'), d=d)
         #return render_template("results.html")
-        #return render_template("results.html", d=json.dumps(d), message = "search complete")
+        return render_template("results.html", d=json.dumps(d), message = "search complete")
         return redirect(url_for('home'))
         
 @app.route("/account", methods = ['GET', 'POST'])
@@ -96,4 +96,4 @@ def map():
         return render_template("map.html")
 if __name__ == "__main__":
     app.debug = True
-    app.run(port=7003)
+    app.run(port=5005)
