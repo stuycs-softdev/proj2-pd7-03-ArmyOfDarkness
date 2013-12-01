@@ -3,7 +3,7 @@
 from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, city_search, keytest
 import json 
-#import db
+import db
 #import googlemap
 
 app = Flask(__name__)
