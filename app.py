@@ -39,11 +39,11 @@ def login():
     else:
         user = request.form['user'].encode ('ascii',"ignore")
         pw = request.form['pass'].encode ('ascii',"ignore")
-        if not db.authenticateRegister(user):
-            return render_template("login.html", message = "invalid username and password combination.")
-        elif db.authenticate(user, pw):
+        if db.authenticate(user, pw):
             session['user'] = user
             return redirect(url_for('home'))
+        if not db.authenticateRegister(user):
+            return render_template("login.html", message = "invalid username and password combination.")
         else: 
             return render_template("login.html", message = "invalid username and password combination.")
 
