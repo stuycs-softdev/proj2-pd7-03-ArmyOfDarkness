@@ -60,9 +60,9 @@ def citysearch():
         zipcode = request.form['zipcode']
         state = request.form['state']
         #return "<h1>Home</h1>"
-        d = citysearch(city, state, zipcode)
+        #d = citysearch(city, state, zipcode)
         #return redirect(url_for('results'), d=d)
-        return render_template("results.html", d=json.dumps(d), message = "search complete")
+        #return render_template("results.html", d=json.dumps(d), message = "search complete")
         print("begin")
        # print(str(d))
 
