@@ -1,13 +1,18 @@
 <html> 
 
-<h1> Advanced School Search </h1>
+ <head>
+    {% include "navbar.html" %}
+    <title>Search</title>
+  </head>
 
 
-<p> Type in the city, state, and zipcode you are looking for. <br /> 
-We will provide you with a list of schools in the area </p>
+<h1 style="text-align: center;"> Advanced School Search </h1>
 
 
-<form method="POST">
+<p style="text-align: center;"> Type in the city, state, and zipcode you are looking for. <br /> 
+We will provide you with a list of schools in the area.
+
+<form method ="POST", style="text-align: center;">
 
 Zip Code <br />
 <input type="text" name="zip">
@@ -26,5 +31,7 @@ State: <br />
 
 
 </form>
+
+</p>
 
 </html>

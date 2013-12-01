@@ -7,22 +7,34 @@
     <title>Register</title>
   </head>
 
-  <body>
+  <!--<body>
     <div class="text-center">
       <h1>Register</h1>
       <form method="POST" role="form" class="form-inline">
-	<div class="form-group">
-	  <label for="user">Username</label>
-	  <input type="text" class="form-control" id="user" placeholder="Enter username...">
-	</div>
-	<div class="form-group">
-	  <label for="pass">Password</label>
-	  <input type="text" class="form-control" id="pass" placeholder="Enter password..."> <!--TODO: change input type to password -->
-	</div>
-	{{message}}
-	<button type="submit" class="btn btn-default">Submit</button>
+        <div class="form-group">
+          <label for="user">Username</label>
+          <input type="text" class="form-control" id="user" placeholder="Enter username...">
+        </div>
+        <div class="form-group">
+          <label for="pass">Password</label>
+          <input type="text" class="form-control" id="pass" placeholder="Enter password...">TODO: change input type to password 
+        </div>
+        {{message}}
+        <input type="submit" name="button" value="Submit">
+        <!--<button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
+  </body>-->
+   <body>
+    <h1 style = "text-align:center"> {{message}} </h1>
+    <h2 style = "text-align:center"> Sign Up Below </h2>
+    <form method = "POST" align = "center">
+      <p> Username: <input type = "text" name = "user"> </p>
+      <p> Password: <input type = "text" name = "pass"> </p>
+      <input type = "submit" name = "button" value = "Register">
+      <br>
+      <p> Signed up already? Login below. </p>
+      <a href = "/login"> Login </href>
+    </form>
   </body>
-  
 </html>

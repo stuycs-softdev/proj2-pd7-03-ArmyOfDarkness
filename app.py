@@ -1,16 +1,17 @@
+#!/usr/bin/python
+
 from flask import Flask, session, redirect, request, url_for, render_template
+from education_backend import run, citysearch
+import json 
 import db
+
 app = Flask(__name__)
 app.secret_key = "secretkey"
 
 @app.route("/")
 @app.route("/home")
 def home():
-    if 'user' in session:
-        return render_template("index.html", user = session['user'])
-    else:
-        return redirect(url_for('login'))
-        
+    return render_template("index.html")    
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if 'user' in session:
@@ -44,6 +45,25 @@ def login():
             return redirect(url_for('home'))
         else:
             return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
+
+@app.route("/search", methods = ['GET', 'POST'])
+def search(): 
+    return render_template("index.html")
+
+@app.route("/citysearch", methods = ['GET', 'POST'])
+def citysearch():
+    if request.method == 'GET':
+        return render_template("city_search.html", message = "")
+    else: 
+        city = request.form['city']
+        zipcode = request.form['zipcode']
+        state = request.form['state']
+        #return "<h1>Home</h1>"
+        d = citysearch(city, state, zipcode)
+        #return redirect(url_for('results'), d=d)
+        return render_template("results.html", d=json.dumps(d), message = "search complete")
+        print("begin")
+       # print(str(d))
 
 @app.route("/account", methods = ['GET', 'POST'])
 def account():
