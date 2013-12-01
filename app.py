@@ -4,6 +4,7 @@ from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, citysearch
 import json 
 import db
+import googlemap
 
 app = Flask(__name__)
 app.secret_key = "secretkey"
@@ -80,14 +81,15 @@ def account():
         else:
             return render_template("changepass.html", message = "Unsuccessful. You entered an incorrect password.")
 
-@app.route("/schoolsearch")
-    return <h1> School Search </h1>
-
 @app.route("/logout")
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
-        
+
+@app.route('/maps',methods=["POST","GET"])
+def map():
+    if request.method == 'GET':
+        return render_template("map.html")
 if __name__ == "__main__":
     app.debug = True
     app.run(port=7003)
