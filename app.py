@@ -37,8 +37,8 @@ def login():
     elif request.method == "GET":
         return render_template("login.html", message = "")
     else:
-        user = request.form['user']
-        pw = request.form['pass']
+        user = request.form['user'].encode ('ascii',"ignore")
+        pw = request.form['pass'].encode ('ascii',"ignore")
         if user == "" or pw == "":
             return render_template("login.html", message = "Please enter your username and password.")
         elif (db.authenticateRegister(user) == False):
