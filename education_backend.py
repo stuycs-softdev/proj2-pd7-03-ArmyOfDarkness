@@ -17,8 +17,13 @@ def run():
     json_data = json.loads(json_raw)
 
     print json_data
-def test(city,state,zipcode,key):
+def keytest(city,state,zipcode,key):
+    mom = "2db9eedc16ba9389991b223c4fb97df8"
+    dad = "7d733591e1f66640dc372fcb658fe38d"
+    stuy = "c7e0635761a449cde8a406b7b1eaaffb"
     url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4"
+
+    #&city=san+francisco&state=ca&resf=json"
 
     if city != "": 
         url = url + "&city=" + city
@@ -28,13 +33,26 @@ def test(city,state,zipcode,key):
         url = url + "&zip=" + zipcode
     url = url + "&resf=json"
     print(url)
+
+    input1 = urlopen(url)
+    json_raw = input1.read() 
+    json_data = json.loads(json_raw)
     
-    try: 
-        input1 = urlopen(url)
-        return true 
-    except: 
-        return false
-    
+    print json_data
+
+    results = []
+
+    for entry in json_data:
+        data  = []
+        try:
+            school = entry['school']
+            print ("true")
+            return True 
+        except: 
+            print ("false")
+            return False
+
+           
 def city_search(city, state, zipcode,key):
     mom = "2db9eedc16ba9389991b223c4fb97df8"
     dad = "7d733591e1f66640dc372fcb658fe38d"
@@ -177,6 +195,7 @@ def city_search(city, state, zipcode,key):
 
 if __name__ == '__main__':
     #run()
-    city_search("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
+    test("","","","")
+    #city_search("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
 
 
