@@ -1,5 +1,6 @@
 from flask import Flask, session, redirect, request, url_for, render_template
 import db
+import googlemap
 app = Flask(__name__)
 app.secret_key = "secretkey"
 
