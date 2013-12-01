@@ -16,12 +16,6 @@ def run():
     json_data = json.loads(json_raw)
 
     print json_data
-    #for x in range (0, len(json_data)):
-     #   entry = json_data[x]
-      #  entry_info = entry['school']
-       # print "School #" + str(x) + ': ' + str(entry_info) 
-
-# entry_info['city'], entry_info['schooldistrictname'], entry_info['website']
 
 def citysearch(city, state, zipcode):
     key = "2db9eedc16ba9389991b223c4fb97df8"
@@ -39,18 +33,13 @@ def citysearch(city, state, zipcode):
         url = url + "&zip=" + zipcode
     url = url + "&resf=json"
     print(url)
-"""
+
     input1 = urlopen(url)
     json_raw = input1.read() 
     json_data = json.loads(json_raw)
     
-    #return json_data
-    #print json_data
-    #for x in range (0, len(json_data)):
-    #entry = json_data[x]
-    #entry_info = entry['school']
-    #print "School #" + str(x) + ': ' + str(entry_info) 
-
+    print json_data
+"""
     results = []
 
     for entry in json_data:
