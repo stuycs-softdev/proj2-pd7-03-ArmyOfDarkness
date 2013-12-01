@@ -14,8 +14,7 @@ def home():
     if 'user' in session:
         return render_template("index.html", user = session['user'])
     else:
-        return redirect(url_for('login'))
-        
+        return render_template("index.html")    
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if 'user' in session:
