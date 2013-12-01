@@ -64,13 +64,13 @@ def citysearch():
         key = request.form['key']
         print(key)
         #return "<h1>Home</h1>"
-        try:
+        if test(city,state,zipcode,key)
             d = city_search(city, state, zipcode,key)
             #return redirect(url_for('results'), d=d)
             #return render_template("results.html")
             return render_template("results.html", d=json.dumps(d), message = "search complete")
             return redirect(url_for('home'))
-        except: 
+        else: 
             return render_template("city_search.html", message = "incorrect input values. check your key and try again.")
 
         
