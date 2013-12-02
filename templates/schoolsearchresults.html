@@ -9,9 +9,9 @@
   <body>
     <ol class="breadcrumb">
       <li><a href="/results/schoolsearch/{{name}}">{{name}}</a></li>
-      {% if dept is None %}
+      {% if dept %}
       <li><a href="/results/schoolsearch/{{dept}}">{{dept}}</a></li>
-      {% if prof is None%}
+      {% if prof %}
       <li><a href="/results/schoolsearch/{{prof}}">{{prof}}</a></li>
       {% endif %}
       {% endif %}
@@ -20,12 +20,12 @@
     {% set i = 0 %}
     {% for x in d %}
     <button class="btn btn-link">
-      {% if prof is None %}
-      <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
-      {% elif dept is None %}
-      <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
-      {% else %}
+      {% if prof %}
       {{x[i]}}
+      {% elif dept %}
+      <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
+      {% else %}
+      <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
       {% endif %}
     </button>
     {% set i = i + 1 %}
