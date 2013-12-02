@@ -54,7 +54,9 @@ def search():
 
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
-    if request.method == 'GET':
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    elif request.method == 'GET':
         return render_template("city_search.html",loggedin=True,message = "")
     else: 
         #button = request.form['button'].encode("utf8")
