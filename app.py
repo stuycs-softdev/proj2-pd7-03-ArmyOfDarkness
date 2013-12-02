@@ -59,14 +59,13 @@ def search():
         name = request.form['schoolname']
         
         d = uniSearch(name)
-        return redirect(url_for('schoolsearchresults',name=name))
+        return redirect("/results/schoolsearch/"+name)
 
 @app.route("/results/schoolsearch/<name>")
 @app.route("/results/schoolsearch/<name>/<dept>")
 @app.route("/results/schoolsearch/<name>/<dept>/<prof>")
-@app.route("/results/schoolsearch/<name>/<dept>/<prof>/<course>")
-def schoolsearchresults(name,dept=None,prof=None,course=None):
-    return render_template("schoolsearchresults.html",loggedin=True,name=name,dept=dept,prof=prof,course=course)
+def schoolsearchresults(name,dept=None,prof=None):
+    return render_template("schoolsearchresults.html",loggedin=True,name=name,dept=dept,prof=prof)
 
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
