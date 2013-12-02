@@ -17,18 +17,16 @@
       {% endif %}
       
     </ol>
-    {% set i = 0 %}
     {% for x in d %}
     <button type="button" class="btn btn-link">
       {% if prof %}
-      {{x[i][0]}}
+      {{x[0]}}<img src="{{x[1]}}">
       {% elif dept %}
       <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
       {% else %}
       <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
       {% endif %}
     </button>
-    {% set i = i + 1 %}
     {% endfor %}  
     </ul>
   </body>
