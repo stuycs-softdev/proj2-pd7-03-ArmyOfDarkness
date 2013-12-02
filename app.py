@@ -58,7 +58,7 @@ def search():
     else: 
         name = request.form['schoolname']
         
-        d = uniSearch(city, state, zipcode,key)
+        d = uniSearch(name)
         return render_template("schoolsearchresults.html", d=json.dumps(d), message = "search complete")
 
 @app.route("/results/schoolsearch/<name>")
