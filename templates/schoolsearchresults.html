@@ -21,7 +21,7 @@
     {% for x in d %}
     <button type="button" class="btn btn-link">
       {% if prof %}
-      {{x[i][0]}}<img src="{{x[i][1]}}">
+      {{x[i][0]}}
       {% elif dept %}
       <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
       {% else %}
