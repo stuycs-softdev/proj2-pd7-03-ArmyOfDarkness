@@ -11,7 +11,7 @@
       <li><a href="/results/schoolsearch/{{name}}">{{name}}</a></li>
       {% if dept is None %}
       <li><a href="/results/schoolsearch/{{dept}}">{{dept}}</a></li>
-      {% if not prof %}
+      {% if prof is None%}
       <li><a href="/results/schoolsearch/{{prof}}">{{prof}}</a></li>
       {% endif %}
       {% endif %}
@@ -22,7 +22,7 @@
     <button class="btn btn-link">
       {% if prof is None %}
       <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
-      {% else if dept is None %}
+      {% elseif dept is None %}
       <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
       {% else %}
       {{x[i]}}
