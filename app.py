@@ -2,6 +2,7 @@
 
 from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, city_search, keytest
+from myedu import uniSearch
 import json 
 import db
 #import googlemap
@@ -50,11 +51,22 @@ def login():
 
 @app.route("/schoolsearch", methods = ['GET', 'POST'])
 def search(): 
-    return "<h1> School Search </h1>"
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    elif request.method == 'GET':
+        return render_template("school_search.html",loggedin=True,message = "")
+    else: 
+        name = request.form['schoolname']
+        
+        d = uniSearch(city, state, zipcode,key)
+        return render_template("results.html", d=json.dumps(d), message = "search complete")
+
 
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
-    if request.method == 'GET':
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    elif request.method == 'GET':
         return render_template("city_search.html",loggedin=True,message = "")
     else: 
         #button = request.form['button'].encode("utf8")
