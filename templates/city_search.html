@@ -1,39 +1,56 @@
-<html> 
+<!DOCTYPE html>
+<html lang="en"> 
 
- <head>
+  <head>
     {% include "navbar.html" %}
-    <title>Search</title>
+    <title>City Search</title>
   </head>
 
+  <body>
+    <h1 class="col-sm-offset-2"> Advanced School Search </h1>
 
-<h1 style="text-align: center;"> Advanced School Search </h1>
 
+    <p class="col-sm-offset-2"> Type in the city, state, and zipcode you are looking for. <br /> 
+      We will provide you with a list of schools in the area. </p>
 
-<p style="text-align: center;"> Type in the city, state, and zipcode you are looking for. <br /> 
-We will provide you with a list of schools in the area.
+    <form class="form-horizontal" role="form" method="POST">
 
-<form method ="POST", style="text-align: center;">
+      <div class="form-group">
+	<label for="zipcode" class="col-sm-2 control-label">Zip Code (five digit number)</label>
+	<div class="col-sm-3">
+	  <input type="text" class="form-control" name="zipcode" placeholder="Zip Code">
+	</div>
+      </div>
+      
+      <div class="form-group">
+	<label for="city" class="col-sm-2 control-label">City (ex. new+york, no spaces allowed </label>
+	<div class="col-sm-3">
+	  <input type="text" class="form-control" name="city" placeholder="City">
+	</div>
+      </div>
 
-Zip Code (five digit number) <br />
-<input type="text" name="zipcode" value="zipcode">
-<br /><br />
+      <div class="form-group">
+	<label for="state" class="col-sm-2 control-label"> State (Two-letter representation)</label>
+	<div class="col-sm-3">
+	  <input type="text" class="form-control" name="state" placeholder="State">
+	</div>
+      </div>
 
-City (ex. new+york, no spaces): <br />
-<input type="text" name="city" value="city">
-<br /> <br />
+      <div class="form-group">
+	<label for="key" class="col-sm-2 control-label">API Key (from <a href = "http://www.education.com/schoolfinder/tools/webservice/"> this website</a>) </label>
+	<div class="col-sm-3">
+	  <input type="text" class="form-control" name="key" placeholder="API Key">
+	</div>
+      </div>
+      
+      <div class="form-group">
+	<div class="col-sm-offset-2 col-sm-10">
+	  <input type="submit" name="button" class="btn btn-default" value="Submit">
+	</div>
+      </div>
+      
+    </form>
 
-State (two letter representation): <br />
-<input type="text" name="state" value="state">
-<br /> <br />
-
-API Key (from <a href = "http://www.education.com/schoolfinder/tools/webservice/"> this website) </a>: <br />
-<input type="text" name="key" value ="key">
-<br /> <br />
-
-<input type="Submit" name="button">
-
-</form>
-
-</p>
-
+    </p>
+  </body>
 </html>
