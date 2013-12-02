@@ -98,7 +98,7 @@ def courseSearch(link):
    
 
 if __name__ == "__main__":
-    balh="""
+    blha="""
     start = time.time()
     for i in range(0,20):
         url = uniSearch("      yale  university")
@@ -111,6 +111,6 @@ if __name__ == "__main__":
     
     print(end)
 """
-    print("%s\n"%(getLink("yale",None,None)))
+    print(getLink("yale",None,None))
     print(getLink("yale","Akkadian",None))
     print(getLink("yale","Akkadian","Foster Benjamin"))
