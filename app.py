@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from flask import Flask, session, redirect, request, url_for, render_template
-from education_backend import run, city_search
+from education_backend import run, city_search, keytest
 import json 
 import db
 #import googlemap
@@ -38,8 +38,8 @@ def login():
     elif request.method == "GET":
         return render_template("login.html", message = "")
     else:
-        user = request.form['user']
-        pw = request.form['pass']
+        user = request.form['user'].encode ('ascii',"ignore")
+        pw = request.form['pass'].encode ('ascii',"ignore")
         if user == "" or pw == "":
             return render_template("login.html", message = "Please enter your username and password.")
         elif db.login(user, pw):
@@ -65,14 +65,26 @@ def citysearch():
         key = request.form['key']
         print(key)
         #return "<h1>Home</h1>"
-        if test(city,state,zipcode,key):
+
+        if (' ' in city): 
+            return render_template("cityError.html")
+            #return "<h1> cityError </h1>"
+        elif (keytest(city,state,zipcode,key) == False):
+            return render_template("keyError.html")
+        elif (len(zipcode) > 5):
+            return render_template("zipError.html")
+            #return "<h1> zipError </h1>"
+        elif (len(state) > 2): 
+            return render_template("stateError.html")
+            #return "<h1> stateError </h1>"
+
+
+        else: 
             d = city_search(city, state, zipcode,key)
             #return redirect(url_for('results'), d=d)
             #return render_template("results.html")
             return render_template("results.html", d=json.dumps(d), message = "search complete")
             return redirect(url_for('home'))
-        else: 
-            return render_template("city_search.html", message = "incorrect input values. check your key and try again.")
 
         
 @app.route("/account", methods = ['GET', 'POST'])
