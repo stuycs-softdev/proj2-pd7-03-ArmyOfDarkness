@@ -62,7 +62,7 @@ def search():
 @app.route("/results/schoolsearch/<name>/<dept>")
 @app.route("/results/schoolsearch/<name>/<dept>/<prof>")
 def schoolsearchresults(name,dept=None,prof=None):
-    link = getlink(name,dept,prof)
+    link = getLink(name,dept,prof)
     if prof:
         d=courseSearch(link)
     elif dept:
