@@ -9,19 +9,26 @@
   <body>
     <ol class="breadcrumb">
       <li><a href="/results/schoolsearch/{{name}}">{{name}}</a></li>
-      {% if not dept %}
+      {% if dept is None %}
       <li><a href="/results/schoolsearch/{{dept}}">{{dept}}</a></li>
       {% if not prof %}
       <li><a href="/results/schoolsearch/{{prof}}">{{prof}}</a></li>
       {% endif %}
       {% endif %}
+      
     </ol>
-    
-      {% set i = 0 %}
-      {% for x in d %}
-      <button class="btn btn-link"><a href="/results/schoolsearch/{{name}}/{{dept}}/{{prof}}">{{x}}</a></button>
-      {% set i = i + 1 %}
-      {% endfor %}  
+    {% set i = 0 %}
+    {% for x in d %}
+    <button class="btn btn-link">
+      {% if prof is None %}
+      <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
+      {% else if dept is None %}
+      <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
+      {% else %}
+      {{x[i]}}
+    </button>
+    {% set i = i + 1 %}
+    {% endfor %}  
     </ul>
   </body>
 </html>
