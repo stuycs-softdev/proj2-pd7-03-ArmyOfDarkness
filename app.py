@@ -57,7 +57,7 @@ def search():
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
         name = request.form['schoolname']
-        return redirect(urlfor("schoolsearchresults",name=name))
+        return redirect(url_for("schoolsearchresults",name=name))
 
 @app.route("/results/schoolsearch/<name>")
 @app.route("/results/schoolsearch/<name>/<dept>")
