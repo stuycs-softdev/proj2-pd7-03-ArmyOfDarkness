@@ -29,9 +29,9 @@ def register():
                 return redirect(url_for('home',loggedin=True))
             else:
                 return render_template("register.html", message = "User already exists. Please login.")
-        else:
-            return render_template("register.html", message = "")
-
+            else:
+                return render_template("register.html", message = "")
+                
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
     if 'user' in session:
@@ -58,7 +58,7 @@ def search():
     else: 
         schoolname = request.form['schoolname']
         schoolinfo = uniSearch(name)
-        return redirect(url_for("schoolsearchresults",name=schoolinfo[0][1])
+        return redirect(url_for("schoolsearchresults",name=schoolinfo[0][1]))
 
 @app.route("/results/schoolsearch/<name>")
 @app.route("/results/schoolsearch/<name>/<dept>")
