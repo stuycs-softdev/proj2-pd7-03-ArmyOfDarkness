@@ -2,7 +2,7 @@
 
 from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, city_search, keytest
-from myedu import uniSearch
+from myedu import uniSearch, imgSearch, depSearch, profSearch, courseSearch
 import json 
 import db
 #import googlemap
@@ -59,8 +59,14 @@ def search():
         name = request.form['schoolname']
         
         d = uniSearch(city, state, zipcode,key)
-        return render_template("results.html", d=json.dumps(d), message = "search complete")
+        return render_template("schoolsearchresults.html", d=json.dumps(d), message = "search complete")
 
+@app.route("/results/schoolsearch/<name>")
+@app.route("/results/schoolsearch/<name>/<dept>")
+@app.route("/results/schoolsearch/<name>/<dept>/<prof>")
+@app.route("/results/schoolsearch/<name>/<dept>/<prof>/<course>")
+def schoolsearchresults(name,dept=None,prof=None,course=None):
+    return render_template("schoolsearchresults.html",loggedin=True,name=name,dept=dept,prof=prof,course=course)
 
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
