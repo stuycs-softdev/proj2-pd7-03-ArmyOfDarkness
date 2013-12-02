@@ -2,7 +2,7 @@
 
 from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, city_search, keytest
-from myedu import uniSearch, imgSearch, depSearch, profSearch, courseSearch
+from myedu import uniSearch, imgSearch, depSearch, profSearch, courseSearch, getlink
 import json 
 import db
 #import googlemap
