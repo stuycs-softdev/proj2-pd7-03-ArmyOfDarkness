@@ -29,8 +29,6 @@ def register():
                 return redirect(url_for('home',loggedin=True))
             else:
                 return render_template("register.html", message = "User already exists. Please login.")
-            else:
-                return render_template("register.html", message = "")
                 
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
