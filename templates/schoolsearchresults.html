@@ -16,10 +16,10 @@
       {% endif %}
       {% endif %}
     </ol>
-    <ul>
+    
       {% set i = 0 %}
-      {% for x in d['univ'] %}
-      <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
+      {% for x in d %}
+      <button class="btn btn-link"><a href="/results/schoolsearch/{{name}}/{{dept}}/{{prof}}">{{x}}</a></button>
       {% set i = i + 1 %}
       {% endfor %}  
     </ul>

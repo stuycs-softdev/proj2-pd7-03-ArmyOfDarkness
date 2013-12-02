@@ -56,13 +56,15 @@ def search():
     elif request.method == 'GET':
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
-        name = request.form['schoolname']
-        return redirect(url_for("schoolsearchresults",name=name))
+        schoolname = request.form['schoolname']
+        schoolinfo = uniSearch(name)
+        return redirect(url_for("schoolsearchresults",name=schoolinfo[0][1])
 
 @app.route("/results/schoolsearch/<name>")
 @app.route("/results/schoolsearch/<name>/<dept>")
 @app.route("/results/schoolsearch/<name>/<dept>/<prof>")
-def schoolsearchresults(name=None,dept=None,prof=None):
+def schoolsearchresults(name,dept=None,prof=None):
+    link = getlink(name,dept,prof)
     if prof:
         d=courseSearch(link)
     elif dept:
