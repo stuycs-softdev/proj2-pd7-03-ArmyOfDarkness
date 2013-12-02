@@ -55,7 +55,7 @@ def search():
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
         schoolname = request.form['schoolname']
-        schoolinfo = uniSearch(name)
+        schoolinfo = uniSearch(schoolname)
         return redirect(url_for("schoolsearchresults",name=schoolinfo[0][1]))
 
 @app.route("/results/schoolsearch/<name>")
