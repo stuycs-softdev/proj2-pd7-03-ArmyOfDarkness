@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+  <head>
+    {% include "navbar.html" %}
+    <title>School Search</title>
+  </head>
+
+  <body>
+    <ol class="breadcrumb">
+      <li><a href="/results/schoolsearch/{{name}}">{{name}}</a></li>
+      {% if dept %}
+      <li><a href="/results/schoolsearch/{{dept}}">{{dept}}</a></li>
+      {% if prof %}
+      <li><a href="/results/schoolsearch/{{prof}}">{{prof}}</a></li>
+      {% endif %}
+      {% endif %}
+      
+    </ol>
+    {% for x in d %}
+    <button type="button" class="btn btn-link">
+      {% if prof %}
+      {{x[0]}}<img src="{{x[1]}}">
+      {% elif dept %}
+      <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
+      {% else %}
+      <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
+      {% endif %}
+    </button>
+    {% endfor %}  
+    </ul>
+  </body>
+</html>

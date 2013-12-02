@@ -2,7 +2,7 @@
 
 from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, city_search, keytest
-from myedu import uniSearch
+from myedu import uniSearch, imgSearch, depSearch, profSearch, courseSearch, getLink
 import json 
 import db
 #import googlemap
@@ -29,9 +29,7 @@ def register():
                 return redirect(url_for('home',loggedin=True))
             else:
                 return render_template("register.html", message = "User already exists. Please login.")
-        else:
-            return render_template("register.html", message = "")
-
+                
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
     if 'user' in session:
@@ -56,11 +54,22 @@ def search():
     elif request.method == 'GET':
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
-        name = request.form['schoolname']
-        
-        d = uniSearch(city, state, zipcode,key)
-        return render_template("results.html", d=json.dumps(d), message = "search complete")
+        schoolname = request.form['schoolname']
+        schoolinfo = uniSearch(schoolname)
+        return redirect(url_for("schoolsearchresults",name=schoolinfo[0][1]))
 
+@app.route("/results/schoolsearch/<name>")
+@app.route("/results/schoolsearch/<name>/<dept>")
+@app.route("/results/schoolsearch/<name>/<dept>/<prof>")
+def schoolsearchresults(name,dept=None,prof=None):
+    link = getLink(name,dept,prof)
+    if prof:
+        d=courseSearch(link)
+    elif dept:
+        d=profSearch(link)
+    else:
+        d=depSearch(link)
+    return render_template("schoolsearchresults.html",loggedin=True,name=name,dept=dept,prof=prof,d=d)
 
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():

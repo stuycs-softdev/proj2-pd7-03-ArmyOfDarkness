@@ -11,6 +11,19 @@ def parser(text):
     ans = " ".join(ans)
     return ans
 
+def getLink(univ,dept,prof):
+    if (univ == None):
+        return
+    elif (dept == None):
+        return uniSearch(univ)[0][2]
+    elif(prof == None):
+        return next(x[0] for x in depSearch(getLink(univ,None,None)) if x[1]==dept)
+    else:
+        url= next(x[0] for x in profSearch(getLink(univ,dept,None)) if x[1]==prof)
+#        return [x[0] for x in courseSearch(url)]
+        return url
+
+
 #pass in a string that the user searched up
 #return [[<url to first university's default pg(stats)>,<name of university>,<url to university's list of departments>],[<the next university's stuff>],[<etc>]]
 def uniSearch(keywords):
@@ -85,7 +98,7 @@ def courseSearch(link):
    
 
 if __name__ == "__main__":
-    
+    blha="""
     start = time.time()
     for i in range(0,20):
         url = uniSearch("      yale  university")
@@ -97,4 +110,7 @@ if __name__ == "__main__":
     end = (time.time() - start)/20
     
     print(end)
-
+"""
+    print(getLink("yale",None,None))
+    print(getLink("yale","Akkadian",None))
+    print(getLink("yale","Akkadian","Foster Benjamin"))
