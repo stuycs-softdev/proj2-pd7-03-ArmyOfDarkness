@@ -11,18 +11,17 @@
       <li><a href="/results/schoolsearch/{{name}}">{{name}}</a></li>
       {% if not dept %}
       <li><a href="/results/schoolsearch/{{dept}}">{{dept}}</a></li>
-      {% end if %}
       {% if not prof %}
       <li><a href="/results/schoolsearch/{{prof}}">{{prof}}</a></li>
-      {% end if %}
+      {% endif %}
+      {% endif %}
     </ol>
-
-    <ul style="list-style:none;">
+    <ul>
       {% set i = 0 %}
       {% for x in data['univ'] %}
       <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
       {% set i = i + 1 %}
       {% endfor %}  
-      </ul>
+    </ul>
   </body>
 </html>
