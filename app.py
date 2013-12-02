@@ -3,7 +3,7 @@
 from flask import Flask, session, redirect, request, url_for, render_template
 from education_backend import run, city_search
 import json 
-#import db
+import db
 #import googlemap
 
 
@@ -13,11 +13,11 @@ app.secret_key = "secretkey"
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("index.html")    
+    return render_template("index.html",loggedin=True)
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if 'user' in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('home',loggedin=True))
     elif request.method == "GET":
         return render_template("register.html", message = "")
     else:
@@ -25,7 +25,7 @@ def register():
         if button == "Register":
             if db.register(request.form['user'], request.form['pass']):
                 session['user'] = request.form['user']
-                return redirect(url_for('home'))
+                return redirect(url_for('home',loggedin=True))
             else:
                 return render_template("register.html", message = "User already exists. Please login.")
         else:
@@ -34,7 +34,7 @@ def register():
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
     if 'user' in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('home',loggedin=True))
     elif request.method == "GET":
         return render_template("login.html", message = "")
     else:
@@ -44,7 +44,7 @@ def login():
             return render_template("login.html", message = "Please enter your username and password.")
         elif db.login(user, pw):
             session['user'] = user
-            return redirect(url_for('home'))
+            return redirect(url_for('home',loggedin=True))
         else:
             return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
 
@@ -55,7 +55,7 @@ def search():
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
     if request.method == 'GET':
-        return render_template("city_search.html", message = "")
+        return render_template("city_search.html",loggedin=True,message = "")
     else: 
         #button = request.form['button'].encode("utf8")
         #if button == "Submit":
@@ -79,7 +79,7 @@ def citysearch():
 def account():
     if 'user' in session:
         if request.method == 'GET': 
-            return render_template("changepass.html", message = "")
+            return render_template("changepass.html",loggedin=True,message = "")
         else:
             user = session['user']
             old = request.form['old']
