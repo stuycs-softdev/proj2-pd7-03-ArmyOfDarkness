@@ -22,7 +22,7 @@
     <button class="btn btn-link">
       {% if prof is None %}
       <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
-      {% elseif dept is None %}
+      {% elif dept is None %}
       <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
       {% else %}
       {{x[i]}}
