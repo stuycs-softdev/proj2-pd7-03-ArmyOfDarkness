@@ -68,7 +68,7 @@ def schoolsearchresults(name=None,dept=None,prof=None):
     elif dept:
         d=profSearch(link)
     else:
-        d=deptSearch(link)
+        d=depSearch(link)
     return render_template("schoolsearchresults.html",loggedin=True,name=name,dept=dept,prof=prof,d=d)
 
 @app.route("/citysearch", methods = ['GET', 'POST'])
