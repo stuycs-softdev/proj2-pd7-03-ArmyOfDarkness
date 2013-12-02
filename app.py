@@ -13,13 +13,13 @@ app.secret_key = "secretkey"
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("index.html",loggedin=True)
+    return render_template("index.html",loggedin='user' in session)
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if 'user' in session:
         return redirect(url_for('home',loggedin=True))
     elif request.method == "GET":
-        return render_template("register.html", message = "")
+        return render_template("register.html",message = "")
     else:
         button = request.form['button'].encode("utf8")
         if button == "Register":
@@ -85,9 +85,9 @@ def account():
             old = request.form['old']
             new = request.form['new']
             if db.changePass(user, old, new):
-                return render_template("changepass.html", message = "Password changed successfully.")
+                return render_template("changepass.html",loggedin=True, message = "Password changed successfully.")
             else:
-                return render_template("changepass.html", message = "Unsuccessful. You entered an incorrect password.")
+                return render_template("changepass.html",loggedin=True,message = "Unsuccessful. You entered an incorrect password.")
     else: 
          return redirect(url_for('login'))
 @app.route("/logout")
