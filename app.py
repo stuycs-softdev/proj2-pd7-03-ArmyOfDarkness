@@ -6,25 +6,26 @@ import json
 import db
 #import googlemap
 
+
 app = Flask(__name__)
 app.secret_key = "secretkey"
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("index.html")    
+    return render_template("index.html",loggedin='user' in session)
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if 'user' in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('home',loggedin=True))
     elif request.method == "GET":
-        return render_template("register.html", message = "")
+        return render_template("register.html",message = "")
     else:
         button = request.form['button'].encode("utf8")
         if button == "Register":
             if db.register(request.form['user'], request.form['pass']):
                 session['user'] = request.form['user']
-                return redirect(url_for('home'))
+                return redirect(url_for('home',loggedin=True))
             else:
                 return render_template("register.html", message = "User already exists. Please login.")
         else:
@@ -33,7 +34,7 @@ def register():
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
     if 'user' in session:
-        return redirect(url_for('home'))
+        return redirect(url_for('home',loggedin=True))
     elif request.method == "GET":
         return render_template("login.html", message = "")
     else:
@@ -43,8 +44,9 @@ def login():
             return render_template("login.html", message = "Please enter your username and password.")
         elif db.login(user, pw):
             session['user'] = user
-            return redirect(url_for('home'))
-        return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
+            return redirect(url_for('home',loggedin=True))
+        else:
+            return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
 
 @app.route("/schoolsearch", methods = ['GET', 'POST'])
 def search(): 
@@ -53,7 +55,7 @@ def search():
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
     if request.method == 'GET':
-        return render_template("city_search.html", message = "")
+        return render_template("city_search.html",loggedin=True,message = "")
     else: 
         #button = request.form['button'].encode("utf8")
         #if button == "Submit":
@@ -89,15 +91,15 @@ def citysearch():
 def account():
     if 'user' in session:
         if request.method == 'GET': 
-            return render_template("changepass.html", message = "")
+            return render_template("changepass.html",loggedin=True,message = "")
         else:
             user = session['user']
             old = request.form['old']
             new = request.form['new']
             if db.changePass(user, old, new):
-                return render_template("changepass.html", message = "Password changed successfully.")
+                return render_template("changepass.html",loggedin=True, message = "Password changed successfully.")
             else:
-                return render_template("changepass.html", message = "Unsuccessful. You entered an incorrect password.")
+                return render_template("changepass.html",loggedin=True,message = "Unsuccessful. You entered an incorrect password.")
     else: 
          return redirect(url_for('login'))
 @app.route("/logout")
