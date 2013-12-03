@@ -4,7 +4,7 @@ proj2-pd7-03-ArmyOfDarkness
 This is our second project repository. 
 
 <b> Haoxin Luo: </b>  
-Implemented MyEDU Search. (Not hosted on site because it didn't work.)
+Was tasked with implemented MyEDU Search. Did not do so. Made no contribution to site. 
 
 <b> Tak Chi Wan: </b>  
 Implemented Map Search. 
