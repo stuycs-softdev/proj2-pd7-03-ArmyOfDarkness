@@ -6,7 +6,7 @@ This is our second project repository.
 Folder called "Project Information" contains proposal + project explanation + daily assignments. 
 
 <b> Haoxin Luo: </b>  
-Was tasked with implementing MyEDU Search. Failed to do so. Made no contribution to site. 
+Was tasked with implementing MyEDU Search.
 
 <b> Tak Chi Wan: </b>  
 Implemented Map Search. 
