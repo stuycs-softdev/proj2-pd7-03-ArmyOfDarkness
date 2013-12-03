@@ -204,6 +204,6 @@ def city_search(city, state, zipcode,key):
     return results
 
 if __name__ == '__main__':
-    #run()
-    #test("","","","")
+    run()
+    #test("","","","")  
     #city_search("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
