@@ -135,8 +135,10 @@ def logout():
 
 @app.route('/mapsearch',methods=["POST","GET"])
 def map():
-    if request.method == 'GET':
-        return render_template("map_search.html")
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    elif request.method == 'GET':
+        return render_template("map_search.html",loggedin=True)
     else:
         schoolname=request.form['schoolname']
         addr = schoolname.replace(" ","+")
