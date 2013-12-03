@@ -48,7 +48,7 @@ def login():
             return render_template("login.html", message = "Invalid username and password combination. Usernames and passwords are case sensitive. Please try again.")
 
 @app.route("/schoolsearch", methods = ['GET', 'POST'])
-def search2(): 
+def search(): 
     if 'user' not in session:
         return redirect(url_for('login'))
     elif request.method == 'GET':
