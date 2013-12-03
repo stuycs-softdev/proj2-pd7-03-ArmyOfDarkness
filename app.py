@@ -60,7 +60,7 @@ def search():
         if (keytest("","","",key) == False):
             return render_template("keyError.html")      
         else: 
-            d = school_search(schoolname,key); 
+            d = school_search(schoolid,key); 
             return render_template("results.html", d=json.dumps(d), message = "search complete")
 
 """@app.route("/results/schoolsearch/<name>")
