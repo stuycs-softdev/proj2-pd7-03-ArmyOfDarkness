@@ -54,12 +54,12 @@ def keytest(city,state,zipcode,key):
 
   
   
-def school_search(schoolid, key): 
-    url = "http://api.education.com/service/service.php?f=getStudentStats&key=" key + "& sn=sf& v=4 &" + schoolid
-    print url
-    input1 = urlopen(url)
-    json_raw = input1.read() 
-    json_data = json.loads(json_raw)
+#def school_search(schoolid, key): 
+ #   url = "http://api.education.com/service/service.php?f=getStudentStats&key=" key + "& sn=sf& v=4 &" + schoolid
+  #  print url
+   # input1 = urlopen(url)
+    #json_raw = input1.read() 
+    #json_data = json.loads(json_raw)
     
     #print json_data
     
@@ -205,5 +205,5 @@ def city_search(city, state, zipcode,key):
 
 if __name__ == '__main__':
     #run()
-    test("","","","")
+    #test("","","","")
     #city_search("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
