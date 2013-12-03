@@ -41,9 +41,6 @@ def uniSearch(keywords):
             for i in j.find_all("a",limit=1):
                 ans.append([u'https://www.myedu.com'+i.get('href'),parser(i.get_text()),u'https://www.myedu.com'+i.get('href')+'/professor/by-department'])
     request.close()
-    if not ans:
-        result = "No Results Found For: %s"%(keywords)
-        ans.append([result,result,result])
     return ans
 
 

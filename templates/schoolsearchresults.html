@@ -17,8 +17,11 @@
       {% endif %}
       {% endif %}
       {% endif %}
-      
     </ol>
+
+    {% if d == [] %}
+    <p class="col-sm-2"><strong>No Results Found For: {{query}}<strong></p>
+    {% else %}
     {% for x in d %}
     <button type="button" class="btn btn-link">
       {% if prof %}
@@ -31,7 +34,7 @@
       <a href="/results/schoolsearch/{{x[1]}}">{{x[1]}}</a>
       {% endif %}
     </button>
-    {% endfor %}  
-    </ul>
+    {% endfor %}
+    {% endif %}
   </body>
 </html>
