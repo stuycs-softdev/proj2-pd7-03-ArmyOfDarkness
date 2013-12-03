@@ -54,7 +54,7 @@ def search():
     elif request.method == 'GET':
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
-        schoolname = request.form['schoolname']
+        schoolid = request.form['schoolname']
         key = request.form['key']
 
         if (keytest("","","",key) == False):
