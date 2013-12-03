@@ -17,7 +17,6 @@ def run():
     json_data = json.loads(json_raw)
 
     print json_data
-
 def keytest(city,state,zipcode,key):
     mom = "2db9eedc16ba9389991b223c4fb97df8"
     dad = "7d733591e1f66640dc372fcb658fe38d"
@@ -28,12 +27,12 @@ def keytest(city,state,zipcode,key):
 
     if city != "": 
         url = url + "&city=" + city
-        if state != "":
-            url = url + "&state=" + state
-            if zipcode != "":
-                url = url + "&zip=" + zipcode
-                url = url + "&resf=json"
-                print(url)
+    if state != "":
+        url = url + "&state=" + state
+    if zipcode != "":
+        url = url + "&zip=" + zipcode
+    url = url + "&resf=json"
+    print(url)
 
     input1 = urlopen(url)
     json_raw = input1.read() 
@@ -53,19 +52,33 @@ def keytest(city,state,zipcode,key):
             print ("false")
             return False
 
-def school_search(school,key):
+           
+def city_search(city, state, zipcode,key):
+    mom = "2db9eedc16ba9389991b223c4fb97df8"
+    dad = "7d733591e1f66640dc372fcb658fe38d"
+    stuy = "c7e0635761a449cde8a406b7b1eaaffb"
     url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4"
-    if school != "":
-        url = url + "&city=" + school
+
+    #&city=san+francisco&state=ca&resf=json"
+
+
+    if city != "": 
+        url = url + "&city=" + city
+    if state != "":
+        url = url + "&state=" + state
+    if zipcode != "":
+        url = url + "&zip=" + zipcode
+    url = url + "&resf=json"
+    print(url)
 
     input1 = urlopen(url)
     json_raw = input1.read() 
     json_data = json.loads(json_raw)
-
+    
     print json_data
 
     results = []
-    
+
     for entry in json_data:
         data  = []
         school = entry['school']
@@ -105,7 +118,7 @@ def school_search(school,key):
             data.append ('None Available')
             
         #end of special case
-        
+            
         try:
             data.append(school['state'].encode ('ascii', 'ignore'))
         except: 
@@ -174,149 +187,9 @@ def school_search(school,key):
             data.append(school['testrating_text'].encode ('ascii', 'ignore'))
         except: 
             data.append ('None Available')     
-            
+        
         results.append(data)
-        
-    print results
-    return results
-    
-def city_search(city, state, zipcode,key):
-    mom = "2db9eedc16ba9389991b223c4fb97df8"
-    dad = "7d733591e1f66640dc372fcb658fe38d"
-    stuy = "c7e0635761a449cde8a406b7b1eaaffb"
-    url = "http://api.education.com/service/service.php?f=schoolSearch&key=" + key + "&sn=sf&v=4"
-
-    #&city=san+francisco&state=ca&resf=json"
-
-
-    if city != "": 
-        url = url + "&city=" + city
-        if state != "":
-            url = url + "&state=" + state
-            if zipcode != "":
-                url = url + "&zip=" + zipcode
-                url = url + "&resf=json"
-                print(url)
-
-    input1 = urlopen(url)
-    json_raw = input1.read() 
-    json_data = json.loads(json_raw)
-    
-    print json_data
-
-    results = []
-
-    for entry in json_data:
-        data  = []
-        school = entry['school']
-
-        try: 
-            data.append(school['schoolname'].encode ('ascii', 'ignore'))
-        except: 
-            data.append ('None Available')
-            try: 
-                data.append(school['schooldistrictname'].encode ('ascii', 'ignore'))
-            except: 
-                data.append ('None Available')
-                try: 
-                    data.append(school['schooltype'].encode ('ascii', 'ignore'))
-                except: 
-                    data.append ('None Available')
-                    try: 
-                        data.append(school['gradelevel'].encode ('ascii', 'ignore'))
-                    except: 
-                        data.append ('None Available')
-                        try: 
-                            data.append(school['gradesserved'].encode ('ascii', 'ignore'))
-                        except: 
-                            data.append ('None Available')
-
-        #special case
-        try:
-            students = school['enrollment']
-            data.append(students['total'])
-        except: 
-            data.append ('None Available')
-
-        try:             
-            students = school['studentteacherratio']
-            data.append(students['total'])
-        except: 
-            data.append ('None Available')
             
-        #end of special case
-        
-        try:
-            data.append(school['state'].encode ('ascii', 'ignore'))
-        except: 
-            data.append ('None Available')
-            try:             
-                data.append(school['city'].encode ('ascii', 'ignore'))
-            except: 
-                data.append ('None Available')
-                try: 
-                    data.append(school['zip'].encode ('ascii', 'ignore'))
-                except: 
-                    data.append ('None Available')
-                    try: 
-                        data.append(school['address'].encode ('ascii', 'ignore'))
-                    except: 
-                        data.append ('None Available')
-                        try: 
-                            data.append(school['phonenumber'].encode ('ascii', 'ignore'))
-                        except: 
-                            data.append ('None Available')
-                            try: 
-                                data.append(school['website'].encode ('ascii', 'ignore'))
-                            except: 
-                                data.append ('None Available')
-                                try: 
-                                    data.append(school['url'].encode ('ascii', 'ignore'))
-                                except: 
-                                    data.append ('None Available')
-                                    try: 
-                                        data.append(school['latitude'])
-                                    except: 
-                                        data.append ('None Available')
-                                        try: 
-                                            data.append(school['longitude'])
-                                        except:
-                                            data.append ('None Available')
-                                            try: 
-                                                data.append(school['districtid'].encode ('ascii', 'ignore'))
-                                            except: 
-                                                data.append ('None Available')
-                                                try: 
-                                                    data.append(school['districtleaid'].encode ('ascii', 'ignore'))
-                                                except: 
-                                                    data.append ('None Available')
-                                                    try: 
-                                                        data.append(school['schoolid'].encode ('ascii', 'ignore'))
-                                                    except: 
-                                                        data.append ('None Available')
-                                                        try: 
-                                                            data.append(school['nces_id'].encode ('ascii', 'ignore'))
-                                                        except: 
-                                                            data.append ('None Available')
-                                                            try: 
-                                                                data.append(school['testrating_image_small'].encode ('ascii', 'ignore'))
-                                                            except: 
-                                                                data.append ('None Available')
-                                                                try: 
-                                                                    data.append(school['testrating_year'].encode ('ascii', 'ignore'))
-                                                                except: 
-                                                                    data.append ('None Available')
-                                                                    try: 
-                                                                        data.append(school['testrating_image_large'].encode ('ascii', 'ignore'))
-                                                                    except: 
-                                                                        data.append ('None Available')
-                                                                        try: 
-                                                                            data.append(school['testrating_text'].encode ('ascii', 'ignore'))
-                                                                        except: 
-                                                                            data.append ('None Available')     
-                                                                            
-        results.append(data)
-        
     print results
     return results
 
@@ -324,5 +197,3 @@ if __name__ == '__main__':
     #run()
     test("","","","")
     #city_search("new+york", "ny", "10022", "c7e0635761a449cde8a406b7b1eaaffb")
-
-
