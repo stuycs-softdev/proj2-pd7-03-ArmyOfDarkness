@@ -52,7 +52,17 @@ def keytest(city,state,zipcode,key):
             print ("false")
             return False
 
-           
+  
+  
+def school_search(schoolid, key): 
+    url = "http://api.education.com/service/service.php?f=getStudentStats&key=" key + "& sn=sf& v=4 &" + schoolid
+    print url
+    input1 = urlopen(url)
+    json_raw = input1.read() 
+    json_data = json.loads(json_raw)
+    
+    #print json_data
+    
 def city_search(city, state, zipcode,key):
     mom = "2db9eedc16ba9389991b223c4fb97df8"
     dad = "7d733591e1f66640dc372fcb658fe38d"
