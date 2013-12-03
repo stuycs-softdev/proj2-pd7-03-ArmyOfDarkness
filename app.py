@@ -54,16 +54,11 @@ def search():
     elif request.method == 'GET':
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
-        schoolid = request.form['schoolname']
-        key = request.form['key']
+        schoolname = request.form['schoolname']
+        schoolinfo = uniSearch(schoolname)
+        return redirect(url_for("schoolsearchresults",name=schoolinfo[0][1]))
 
-        if (keytest("","","",key) == False):
-            return render_template("keyError.html")      
-        else: 
-            d = school_search(schoolid,key); 
-            return render_template("results.html", d=json.dumps(d), message = "search complete")
-
-"""@app.route("/results/schoolsearch/<name>")
+@app.route("/results/schoolsearch/<name>")
 @app.route("/results/schoolsearch/<name>/<dept>")
 @app.route("/results/schoolsearch/<name>/<dept>/<prof>")
 def schoolsearchresults(name,dept=None,prof=None):
@@ -75,7 +70,7 @@ def schoolsearchresults(name,dept=None,prof=None):
     else:
         d=depSearch(link)
     return render_template("schoolsearchresults.html",loggedin=True,name=name,dept=dept,prof=prof,d=d)
-""" 
+
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
     if 'user' not in session:
