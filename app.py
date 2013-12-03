@@ -55,27 +55,32 @@ def search():
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
         schoolid = request.form['schoolname']
-        key = request.form['key']
+        """key = request.form['key']
 
         if (keytest("","","",key) == False):
             return render_template("keyError.html")      
         else: 
             d = school_search(schoolid,key); 
-            return render_template("results.html", d=json.dumps(d), message = "search complete")
+            return render_template("results.html", d=json.dumps(d), message = "search complete")"""
+        return redirect(url_for("schoolsearchresults",query=schoolid))
 
-"""@app.route("/results/schoolsearch/<name>")
+@app.route("/results/schoolsearch/?q=<query>")
+@app.route("/results/schoolsearch/<name>")
 @app.route("/results/schoolsearch/<name>/<dept>")
 @app.route("/results/schoolsearch/<name>/<dept>/<prof>")
-def schoolsearchresults(name,dept=None,prof=None):
-    link = getLink(name,dept,prof)
-    if prof:
-        d=courseSearch(link)
-    elif dept:
-        d=profSearch(link)
+def schoolsearchresults(query=None,name=None,dept=None,prof=None):
+    if query:
+        d=uniSearch(query)
     else:
-        d=depSearch(link)
+        link = getLink(name,dept,prof)
+        if prof:
+            d=courseSearch(link)
+        elif dept:
+            d=profSearch(link)
+        elif name:
+            d=depSearch(link)
     return render_template("schoolsearchresults.html",loggedin=True,name=name,dept=dept,prof=prof,d=d)
-""" 
+
 @app.route("/citysearch", methods = ['GET', 'POST'])
 def citysearch():
     if 'user' not in session:

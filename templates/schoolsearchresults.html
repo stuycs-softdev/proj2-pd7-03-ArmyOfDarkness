@@ -8,11 +8,13 @@
 
   <body>
     <ol class="breadcrumb">
+      {% if name %}
       <li><a href="/results/schoolsearch/{{name}}">{{name}}</a></li>
       {% if dept %}
       <li><a href="/results/schoolsearch/{{dept}}">{{dept}}</a></li>
       {% if prof %}
       <li><a href="/results/schoolsearch/{{prof}}">{{prof}}</a></li>
+      {% endif %}
       {% endif %}
       {% endif %}
       
@@ -23,8 +25,10 @@
       {{x[0]}}<img src="{{x[1]}}">
       {% elif dept %}
       <a href="/results/schoolsearch/{{name}}/{{dept}}/{{x[1]}}">{{x[1]}}</a>
-      {% else %}
+      {% elif name %}
       <a href="/results/schoolsearch/{{name}}/{{x[1]}}">{{x[1]}}</a>
+      {% else %}
+      <a href="/results/schoolsearch/{{x[1]}}">{{x[1]}}</a>
       {% endif %}
     </button>
     {% endfor %}  
