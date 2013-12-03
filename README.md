@@ -12,9 +12,9 @@ Implemented Map Search.
 Alvin Leung: 
 Worked on Front End. 
 
-Jack Cahn:
-Implemented City Search.
-Implemented School Search. 
-Wrote Home Page. 
-Wrote All Error Pages. 
-Set up middle end for login, register pages to remove bugs from past code. 
+Jack Cahn:  
+Implemented City Search.  
+Implemented School Search.   
+Wrote Home Page.   
+Wrote All Error Pages.   
+Set up middle end for login, register pages to remove bugs from past code.   
