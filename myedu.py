@@ -42,7 +42,8 @@ def uniSearch(keywords):
                 ans.append([u'https://www.myedu.com'+i.get('href'),parser(i.get_text()),u'https://www.myedu.com'+i.get('href')+'/professor/by-department'])
     request.close()
     if not ans:
-        ans.append("No Results Found For: %s"%(keywords))
+        result = "No Results Found For: %s"%(keywords)
+        ans.append([result,result,result])
     return ans
 
 
