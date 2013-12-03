@@ -12,7 +12,7 @@ Implemented Map Search.
 Alvin Leung: 
 Worked on Front End. 
 
-Jack Cahn:  
+<b> Jack Cahn:</b>
 Implemented City Search.  
 Implemented School Search.   
 Wrote Home Page.   
