@@ -55,13 +55,6 @@ def search():
         return render_template("school_search.html",loggedin=True,message = "")
     else: 
         schoolid = request.form['schoolname']
-        """key = request.form['key']
-
-        if (keytest("","","",key) == False):
-            return render_template("keyError.html")      
-        else: 
-            d = school_search(schoolid,key); 
-            return render_template("results.html", d=json.dumps(d), message = "search complete")"""
         return redirect(url_for("schoolsearchresults",query=schoolid))
 
 @app.route("/results/schoolsearch/?q=<query>")

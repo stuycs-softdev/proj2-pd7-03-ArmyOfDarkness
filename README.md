@@ -6,7 +6,7 @@ This is our second project repository.
 Folder called "Project Information" contains proposal + project explanation + daily assignments. 
 
 <b> Haoxin Luo: </b>  
-Was tasked with implementing MyEDU Search. Failed to do so. Made no contribution to site. 
+Implemented School Search.
 
 <b> Tak Chi Wan: </b>  
 Implemented Map Search. 
@@ -16,7 +16,6 @@ Worked on Front End.
 
 <b> Jack Cahn:</b>  
 Implemented City Search.  
-Implemented School Search.   
 Wrote Home Page.   
 Wrote All Error Pages.   
 Set up middle end for login, register pages to remove bugs from past code.   
