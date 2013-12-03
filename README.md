@@ -3,16 +3,16 @@ proj2-pd7-03-ArmyOfDarkness
 
 This is our second project repository. 
 
-Haoxin Luo: 
+<b> Haoxin Luo: </b>  
 Implemented MyEDU Search. (Not hosted on site because it didn't work.)
 
-Tak Chi Wan: 
+<b> Tak Chi Wan: </b>  
 Implemented Map Search. 
 
-Alvin Leung: 
+<b> Alvin Leung: </b>  
 Worked on Front End. 
 
-<b> Jack Cahn:</b>
+<b> Jack Cahn:</b>  
 Implemented City Search.  
 Implemented School Search.   
 Wrote Home Page.   
