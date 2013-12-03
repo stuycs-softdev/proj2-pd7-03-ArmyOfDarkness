@@ -3,6 +3,8 @@ proj2-pd7-03-ArmyOfDarkness
 
 This is our second project repository. 
 
+Folder called "Project Information" contains proposal + project explanation + daily assignments. 
+
 <b> Haoxin Luo: </b>  
 Was tasked with implemented MyEDU Search. Did not do so. Made no contribution to site. 
 
