@@ -18,7 +18,6 @@ Worked on Front End.
 Implemented City Search.  
 Wrote Home Page.   
 Wrote All Error Pages.    
-
 Set up middle end for login, register pages to remove bugs from past code.   
 
 Folder called "Project Information" contains proposal + project explanation + daily assignments. 
