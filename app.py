@@ -107,7 +107,7 @@ def citysearch():
             d = city_search(city, state, zipcode,key)
             #return redirect(url_for('results'), d=d)
             #return render_template("results.html")
-            return render_template("results.html", d=json.dumps(d), message = "search complete")
+            return render_template("results.html", d=json.dumps(d), message = "search complete",loggedin=True)
             return redirect(url_for('home'))
 
         
@@ -140,7 +140,7 @@ def map():
     else:
         schoolname=request.form['schoolname']
         addr = schoolname.replace(" ","+")
-        return render_template("map_search.html",addr = schoolname)
+        return render_template("map_search.html",addr = schoolname,loggedin=True)
         
 if __name__ == "__main__":
     app.debug = True
