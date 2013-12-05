@@ -79,36 +79,25 @@ def citysearch():
     if 'user' not in session:
         return redirect(url_for('login'))
     elif request.method == 'GET':
-        return render_template("city_search.html",loggedin=True,message = "")
+        return render_template("city_search.html",loggedin=True)
     else: 
-        #button = request.form['button'].encode("utf8")
-        #if button == "Submit":
         city = request.form['city']
         zipcode = request.form['zipcode']
         state = request.form['state']
         key = "c7e0635761a449cde8a406b7b1eaaffb"
         print(key)
-        #return "<h1>Home</h1>"
 
         if (' ' in city): 
             return render_template("cityError.html")
-            #return "<h1> cityError </h1>"
+        elif (len(zipcode) != 0 and len(zipcode) != 5):
+            return render_template("zipError.html")
+        elif (len(state) != 0 and len(state) != 2): 
+            return render_template("stateError.html")
         elif (keytest(city,state,zipcode,key) == False):
             return render_template("keyError.html")
-        elif (len(zipcode) > 5):
-            return render_template("zipError.html")
-            #return "<h1> zipError </h1>"
-        elif (len(state) > 2): 
-            return render_template("stateError.html")
-            #return "<h1> stateError </h1>"
-
-
         else: 
             d = city_search(city, state, zipcode,key)
-            #return redirect(url_for('results'), d=d)
-            #return render_template("results.html")
             return render_template("results.html", d=json.dumps(d), message = "search complete",loggedin=True)
-            return redirect(url_for('home'))
 
         
 @app.route("/account", methods = ['GET', 'POST'])
