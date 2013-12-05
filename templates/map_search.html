@@ -8,17 +8,22 @@
   <body>
    <h1 style="text-align: center;"> Map Search </h1>
         
-   <form method="POST">        
-   Schoolname: <input type="text" name="schoolname">
-   <br>
-   <input type="submit" name="button" value="Submit">
+   <form method="POST" class="form-horizontal" role="form">
+     <div class="form-group">
+       <label for="schoolname" class="col-sm-2 control-label">Name of School</label>
+       <div class="col-sm-3">
+	 <input type="text" name="schoolname" class="form-control" placeholder="Name of School">
+       </div>
+     </div>
+     <div class="form-group">
+       <div class="col-sm-offset-2 col-sm-10">
+	 <input type="submit" name="button" value="Submit" class="btn btn-default">
+       </div>
+     </div>
    </form>
    
-   <p>Location
-   <a href="maps.googleapis.com/maps/api">
+   {% if addr %}
    <img border="0" src="https://maps.googleapis.com/maps/api/staticmap?center={{addr}}&markers=color:red%7Clabel:A%7C{{addr}}&zoom=15&size=600x300&scale=2&maptype=roadmap&sensor=false" alt="place">
-   </a>
-   </p>
-
+   {% endif %}
    </body>
 </html>
